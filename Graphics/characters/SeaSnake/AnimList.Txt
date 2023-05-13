@@ -1,0 +1,5 @@
+body1static
+body2static
+body3static
+tailstatic
+headsnap

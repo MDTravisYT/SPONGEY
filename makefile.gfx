@@ -1,0 +1,728 @@
+#----------------------------------------------------------------------------
+#	MAKEFILE.GFX
+#
+#	Makes all the graphics and data needed for the game
+#
+#	Tabbed for 5 9 (Please do not change)
+#
+#	Created:	10th February 1999 GRLiddon()
+#
+#	Copyright (C) 1997-1999 G R Liddon
+#----------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------
+#	Default Target
+#	--------------
+.PHONY: default
+default: all
+
+#----------------------------------------------------------------------------
+#	Name of the project
+#	--------------------
+PROJ :=			spongey
+
+#----------------------------------------------------------------------------
+
+BUILD_DIR :=	build
+
+#----------------------------------------------------------------------------
+#	Includes
+#	--------
+include $(BUILD_DIR)/globals.mak
+include $(BUILD_DIR)/getuser.mak
+include $(BUILD_DIR)/parse.mak
+include $(BUILD_DIR)/outdirs.mak
+
+TEMP_FILE :=			$(TEMP_BUILD_DIR)/build.tmp
+
+#----------------------------------------------------------------------------
+#--- Levels -----------------------------------------------------------------
+#----------------------------------------------------------------------------
+LEVELS_OPTS :=				-t:8,3,1 -s:16 -l -q
+LEVELS_IN_DIR :=			$(GRAF_DIR)/levels
+LEVELS_OUT_DIR :=			$(DATA_OUT)/levels
+LEVELS_MAKEFILE_DIR :=		$(TEMP_BUILD_DIR)/levels
+LEVELS_DIRS_TO_MAKE :=		$(LEVELS_MAKEFILE_DIR) $(LEVELS_OUT_DIR)
+
+CHAPTER01_LEVEL04_OPTS :=	-t:8,4,1
+CHAPTER02_LEVEL03_OPTS :=	-t:8,2,1
+CHAPTER02_LEVEL04_OPTS :=	-t:8,2,1
+CHAPTER04_LEVEL03_OPTS :=	-t:8,2,1
+CHAPTER05_LEVEL01_OPTS :=	-t:8,2,1
+CHAPTER06_LEVEL03_OPTS :=	-t:8,2,1
+CHAPTER06_LEVEL04_OPTS :=	-t:8,2,1
+FMA_SHADYSHOALS_OPTS :=		-t:8,4,1
+
+LEVELS_CHAPTERS :=			CHAPTER01 CHAPTER02 CHAPTER03 CHAPTER04 CHAPTER05 CHAPTER06 FMA
+
+LEVELS_CHAPTER01 :=			LEVEL01 LEVEL02 LEVEL03 LEVEL04
+LEVELS_CHAPTER02 :=			LEVEL01 LEVEL02 LEVEL03 LEVEL04
+LEVELS_CHAPTER03 :=			LEVEL01 LEVEL02 LEVEL03 LEVEL04
+LEVELS_CHAPTER04 :=			LEVEL01 LEVEL02 LEVEL03 LEVEL04
+LEVELS_CHAPTER05 :=			LEVEL01 LEVEL02 LEVEL03 LEVEL04
+LEVELS_CHAPTER06 :=			LEVEL01 LEVEL02 LEVEL03 LEVEL04 LEVEL05
+LEVELS_FMA :=				SHADYSHOALS CONTROLROOM
+
+LEVELS_MAKEFILES :=		$(foreach CHAPTER,$(LEVELS_CHAPTERS),$(foreach LEVEL,$(LEVELS_$(CHAPTER)),$(LEVELS_MAKEFILE_DIR)/$(CHAPTER)_$(LEVEL).mak))
+
+$(LEVELS_MAKEFILES):	$(LEVELS_DIRS_TO_MAKE) makefile.gfx $(BUILD_DIR)/mklevel.pl
+	@$(PL) $(BUILD_DIR)/mklevel.pl $@ $(notdir $(basename $@))
+
+include $(LEVELS_MAKEFILES)
+
+LEVELS_ALL_OUT :=		$(foreach CHAPTER,$(LEVELS_CHAPTERS),$(foreach LEVEL,$(LEVELS_$(CHAPTER)),$($(CHAPTER)_$(LEVEL)_OUT)))
+
+GFX_DATA_OUT +=    		$(LEVELS_ALL_OUT)
+
+levels : $(LEVELS_ALL_OUT)
+	@$(ECHO) Levels made
+
+cleanlevels : 	
+	@$(RM) -f $(LEVELS_ALL_OUT)
+	@$(ECHO) Levels cleaned
+
+#----------------------------------------------------------------------------
+# Collision data
+#----------------------------------------------------------------------------
+# 
+# COLLISION_IN		:=	$(TOOL_DIR)/mapedit/collision.bmp
+# 
+# COLLISION_OUT_DIR	:=	$(DATA_OUT)/collision
+# COLLISION_OUT		:=	$(COLLISION_OUT_DIR)/colltab.dat
+# 
+# collision : $(COLLISION_OUT)
+# 
+# cleancollision:
+# 	@$(RM) -f $(COLLISION_OUT)
+# 	@$(ECHO) Collision table cleaned
+# 
+# $(COLLISION_OUT) : $(COLLISION_IN)
+# 	@$(DATA_BIN_DIR)/mkcoltab $(COLLISION_IN) -o:$(COLLISION_OUT)
+# 
+# GRAF_DIRS_TO_MAKE	+=	$(COLLISION_OUT_DIR)
+# GFX_DATA_OUT		+=	$(COLLISION_OUT)
+
+
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+# Actors
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+# Anims and extra textures are held within script files in the character dirs
+ACTOR_IN_DIR :=			$(GRAF_DIR)/Characters
+ACTOR_SPRITE_DIR :=		Render/Psx
+ACTOR_OUT_DIR :=		$(DATA_OUT)/Actors
+ACTOR_MAKEFILE_DIR :=	$(TEMP_BUILD_DIR)/actor
+ACTOR_DIRS_TO_MAKE :=	$(ACTOR_MAKEFILE_DIR) $(ACTOR_OUT_DIR)
+MKACTOR_OPTS:=			-c:16
+
+ACTOR_SPONGEBOB :=		SpongeBob SpongeBob_CoralBlower SpongeBob_JellyLauncher SpongeBob_Net SpongeBob_Glove SpongeBob_Wand SpongeBob_JellyFish SpongeBob_FMA SpongeBob_FMA_ITEMOFS
+ACTOR_NPC :=			BarnacleBoy BarnacleBoy_FMA_ITEMOFS Krusty Squidward Gary Sandy Patrick MermaidMan MermaidMan_FMA_ITEMOFS
+
+ACTOR_ENEMY :=			Anenome BabyOctopus Ballblob Caterpillar clam Dustdevil \
+						Flamingskull FlyingDutchman Ghost HermitCrab IronDogFish \
+						PuffaFish Manray Skeletalfish SpiderCrab SpikeyAnenome Stomper \
+						SharkSub Motherjellyfish SeaSnake GiantWorm Plankton
+
+#						Boogermonster Nautilus Neptune 
+
+ACTOR_SPRITES :=		Jellyfish1 Squiddart Butterfly Shell Eyeball
+
+ACTOR_SPR_LIST :=		$(foreach ACTOR,$(ACTOR_SPRITES), $(ACTOR_IN_DIR)/$(ACTOR)/$(ACTOR_SPRITE_DIR)/$(ACTOR)_*.bmp)
+ACTOR_SPR_DEP :=		$(foreach ACTOR,$(ACTOR_SPRITES), $(ACTOR_IN_DIR)/$(ACTOR)/$(ACTOR_SPRITE_DIR)/*)
+ACTOR_SPR_IN :=			-r- -c+ -z+ $(ACTOR_SPR_LIST)
+
+
+ACTOR_LIST :=			$(ACTOR_SPONGEBOB) $(ACTOR_NPC) $(ACTOR_ENEMY)
+
+ACTOR_MAKEFILES :=		$(foreach ACTOR,$(ACTOR_LIST),$(ACTOR_MAKEFILE_DIR)/$(ACTOR).mak)
+
+$(ACTOR_MAKEFILES):	$(ACTOR_DIRS_TO_MAKE) makefile.gfx $(BUILD_DIR)/mkactor.pl
+	@$(PL) $(BUILD_DIR)/mkactor.pl $@ $(notdir $(basename $@))
+
+include $(ACTOR_MAKEFILES)
+
+ACTOR_ALL_OUT :=		$(foreach ACTOR,$(ACTOR_LIST),$($(ACTOR)_OUT))
+
+GFX_DATA_OUT +=    		$(ACTOR_ALL_OUT)
+
+actors : $(ACTOR_ALL_OUT)
+	@$(ECHO) $(ACTOR_SPRITE_LIST)
+	@$(ECHO) Actors made
+
+cleanactors : 	
+	@$(RM) -f $(ACTOR_ALL_OUT)
+	@$(ECHO) Actors cleaned
+
+
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+# Generic Sprite page
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------
+# Special Effect graphics
+#----------------------------------------------------------------------------
+SFX_GFX_DIR :=			$(GRAF_DIR)/sfx
+
+SFX_GFX :=				+smoke.bmp \
+						+explosion0001.bmp +explosion0002.bmp +explosion0003.bmp +explosion0004.bmp +explosion0005.bmp +explosion0006.bmp +explosion0007.bmp +explosion0008.bmp\
+						+splash001.bmp +splash002.bmp +splash003.bmp +splash004.bmp +splash005.bmp +splash006.bmp \
+						+fire01.bmp +fire02.bmp +fire03.bmp +fire04.bmp +fire05.bmp +fire06.bmp +fire07.bmp +fire08.bmp\
+						+drip.bmp +bubblepop.bmp \
+						+Gush000.bmp +Gush001.bmp +Gush002.bmp +Gush003.bmp +GushBase.bmp \
+						+cog01.bmp +elecvalve.bmp\
+						+leg.bmp +thwack.bmp +lightning1.bmp +lightning2.bmp +Healthbubble.bmp
+
+SFX_GFX_IN :=			$(foreach FILE,$(SFX_GFX),$(SFX_GFX_DIR)/$(FILE))
+
+####
+
+SFXGFX_SPR_DEP :=		$(SFX_GFX_IN)
+
+SFXGFX_SPR_IN :=		-z- -c+ $(SFX_GFX_IN) -z+ -c-
+
+#----------------------------------------------------------------------------
+# Ingame graphics and UI
+#----------------------------------------------------------------------------
+INGAMEFX_GFX_NONTRANS_DIR :=$(GRAF_DIR)/ingamefx
+INGAMEFX_GFX_NONTRANS :=			
+INGAMEFX_GFX_NONTRANS_IN :=	$(foreach FILE,$(INGAMEFX_GFX_NONTRANS),$(INGAMEFX_NONTRANS_DIR)/$(FILE))
+
+PICKUP_GFX_DIR :=			$(GRAF_DIR)/pickups
+PICKUP_GFX :=				+spatula +token +pants +glint1 +glint2 +glint3 +glint4 \
+							+questitemstar1 +questitemstar2 +questitemstar3 \
+							+jellyammo +bubblemixture +bubblewand +shoe +balloon +balloonburst +helmet \
+							+blower +launcher +net +glove \
+							+c1_l1_quest_item +c1_l2_quest_item +c1_l3_quest_item +c1_l4_quest_item \
+							+c2_l1_quest_item +c2_l2_quest_item +c2_l3_quest_item +c2_l4_quest_item \
+							+c3_l1_quest_item +c3_l2_quest_item +c3_l3_quest_item +c3_l4_quest_item \
+							+c4_quest_item_1 +c4_quest_item_2 \
+							+c5_l1_quest_item +c5_l2_quest_item +c5_l3_quest_item +c5_l4_quest_item \
+							+sandwich +makeupbag +Uniform +toolbox +autograph
+
+PICKUP_GFX_IN :=			$(foreach FILE,$(PICKUP_GFX),$(PICKUP_GFX_DIR)/$(FILE).bmp)
+
+INGAMEFX_GFX_DIR :=			$(GRAF_DIR)/ingamefx
+INGAMEFX_GFX_TRANS :=		+watermeter +waterhilight +netblob \
+							+spike +sharkmine +snakebile
+INGAMEFX_GFX_TRANS_NONROT_NONCLIP :=	+bubble_1 +bubble_2 +bubble_3 \
+										+water  +aim_arrow
+
+INGAMEFX_GFX_TRANS_IN :=	$(foreach FILE,$(INGAMEFX_GFX_TRANS),$(INGAMEFX_GFX_DIR)/$(FILE).bmp)
+INGAMEFX_GFX_TRANS_NONROT_NONCLIP_IN :=	$(foreach FILE,$(INGAMEFX_GFX_TRANS_NONROT_NONCLIP),$(INGAMEFX_GFX_DIR)/$(FILE).bmp)
+
+####
+
+UI_GFX_DIR :=				$(GRAF_DIR)/ui
+UI_FONT_DIR :=				$(GRAF_DIR)/font
+
+UI_GFX_FONT :=				smallfont/+33	smallfont/+34	smallfont/+37	smallfont/+39	smallfont/+40	\
+							smallfont/+41	smallfont/+42	smallfont/+43	smallfont/+44	smallfont/+45	\
+							smallfont/+46	smallfont/+47	smallfont/+48	smallfont/+49	smallfont/+50	\
+							smallfont/+51	smallfont/+52	smallfont/+53	smallfont/+54	smallfont/+55	\
+							smallfont/+56	smallfont/+57	smallfont/+58	smallfont/+60	\
+							smallfont/+61	smallfont/+62	smallfont/+63	smallfont/+65	\
+							smallfont/+66	smallfont/+67	smallfont/+68	smallfont/+69	smallfont/+70	\
+							smallfont/+71	smallfont/+72	smallfont/+73	smallfont/+74	smallfont/+75	\
+							smallfont/+76	smallfont/+77	smallfont/+78	smallfont/+79	smallfont/+80	\
+							smallfont/+81	smallfont/+82	smallfont/+83	smallfont/+84	smallfont/+85	\
+							smallfont/+86	smallfont/+87	smallfont/+88	smallfont/+89	smallfont/+90	\
+							smallfont/+95	smallfont/+97	smallfont/+98	smallfont/+99	\
+							smallfont/+100	smallfont/+101	smallfont/+102	smallfont/+103	smallfont/+104	\
+							smallfont/+105	smallfont/+106	smallfont/+107	smallfont/+108	smallfont/+109	\
+							smallfont/+110	smallfont/+111	smallfont/+112	smallfont/+113	smallfont/+114\
+							smallfont/+115	smallfont/+116	smallfont/+117	smallfont/+118	smallfont/+119	\
+							smallfont/+120	smallfont/+121	smallfont/+122	smallfont/+140	smallfont/+192	\
+							smallfont/+193	smallfont/+194	smallfont/+195	smallfont/+196	\
+							smallfont/+197	smallfont/+198	smallfont/+199	smallfont/+200	smallfont/+201	\
+							smallfont/+202	smallfont/+203	smallfont/+204	smallfont/+205	smallfont/+206	\
+							smallfont/+207	smallfont/+208	smallfont/+210	smallfont/+211	smallfont/+212	\
+							smallfont/+213	smallfont/+214	smallfont/+216	smallfont/+217	smallfont/+218	\
+							smallfont/+219	smallfont/+220	smallfont/+221	smallfont/+222	smallfont/+223	\
+							smallfont/+224	smallfont/+225	smallfont/+226	smallfont/+227	smallfont/+228	\
+							smallfont/+230	smallfont/+232	smallfont/+233	smallfont/+234	smallfont/+235	\
+							smallfont/+236	smallfont/+237	smallfont/+238	smallfont/+239	smallfont/+242	\
+							smallfont/+243	smallfont/+244	smallfont/+245	smallfont/+246	smallfont/+249	\
+							smallfont/+250	smallfont/+251	smallfont/+252	smallfont/+253	smallfont/+255	\
+							smallfont/+error
+UI_GFX_FONT_IN :=			$(foreach FILE,$(UI_GFX_FONT),$(UI_FONT_DIR)/$(FILE).bmp)
+
+UI_GFX_NONTRANS :=			
+UI_GFX_NONTRANS_IN :=		$(foreach FILE,$(UI_GFX_NONTRANS),$(UI_GFX_DIR)/$(FILE))
+
+UI_GFX_TRANS :=				+bambootopleft.bmp +bamboobotleft.bmp +bambootopright.bmp +bamboobotright.bmp \
+							+bamboohorizontal.bmp +bamboovertical.bmp \
+							+slider_marker.bmp \
+							+butU.bmp +butD.bmp +butL.bmp +butR.bmp \
+							+butC.bmp +butS.bmp +butX.bmp +butT.bmp \
+							+mappointer.bmp +speechbubblecorner.bmp \
+							faces/mr_krabs.bmp faces/patrick.bmp faces/plankton.bmp \
+							faces/sandy.bmp faces/spongebob.bmp faces/squidward.bmp \
+							faces/mermaidman.bmp faces/barnacleboy.bmp faces/gary.bmp \
+							+helpbox1.bmp +helpbox2.bmp +helpbox3.bmp +helpbox4.bmp \
+							+small_balloon.bmp +small_blower.bmp +small_bubblewand.bmp +small_launcher.bmp +small_net.bmp \
+							map/+map_arrow.bmp
+UI_GFX_TRANS_IN :=			$(foreach FILE,$(UI_GFX_TRANS),$(UI_GFX_DIR)/$(FILE))
+
+####
+
+INGAMEGFX_SPR_DEP :=		$(INGAMEFX_GFX_NONTRANS_IN) $(INGAMEFX_GFX_TRANS_IN) $(INGAMEFX_GFX_TRANS_NONROT_NONCLIP_IN) \
+							$(PICKUP_GFX_IN) $(UI_GFX_FONT_IN) $(UI_GFX_NONTRANS_IN) $(UI_GFX_TRANS_IN) 
+
+INGAMEGFX_SPR_IN :=			-c+ -z+ $(INGAMEFX_GFX_TRANS_IN) $(PICKUP_GFX_IN) $(UI_GFX_FONT_IN) $(UI_GFX_TRANS_IN) \
+							-c- -z- $(INGAMEFX_GFX_NONTRANS_IN) $(UI_GFX_NONTRANS_IN) \
+							-c- -q- -z+ -r- $(INGAMEFX_GFX_TRANS_NONROT_NONCLIP_IN) -q+
+
+#----------------------------------------------------------------------------
+# Front end graphics
+#----------------------------------------------------------------------------
+FRONTEND_GFX_DIR :=			$(GRAF_DIR)/frontend
+# FRONTEND_GFX_OUT_DIR :=		$(DATA_OUT)/frontend
+
+FRONTEND_GFX_NONTRANS :=	
+FRONTEND_GFX_NONTRANS_IN :=	$(foreach FILE,$(FRONTEND_GFX_NONTRANS),$(FRONTEND_GFX_DIR)/$(FILE))
+
+FRONTEND_GFX_TRANS :=		+bg3.bmp +bg5.bmp +bg7.bmp +bg8.bmp +bg9.bmp +caustic1.bmp +caustic2.bmp
+FRONTEND_GFX_TRANS_IN :=	$(foreach FILE,$(FRONTEND_GFX_TRANS),$(FRONTEND_GFX_DIR)/$(FILE))
+
+FRONTEND_GFX_TRANS_NO_ROT :=		+sblogo.bmp
+FRONTEND_GFX_TRANS_NO_ROT_IN :=		$(foreach FILE,$(FRONTEND_GFX_TRANS_NO_ROT),$(FRONTEND_GFX_DIR)/$(FILE))
+
+####
+
+FRONTENDGFX_SPR_DEP :=		$(FRONTEND_GFX_NONTRANS_IN) $(FRONTEND_GFX_TRANS_IN)  $(FRONTEND_GFX_TRANS_NO_ROT_IN)
+
+FRONTENDGFX_SPR_IN :=		-r- -z+ $(FRONTEND_GFX_TRANS_NO_ROT_IN) -r+ \
+							$(FRONTEND_GFX_TRANS_IN) \
+							-z- $(FRONTEND_GFX_NONTRANS_IN)
+
+# cleanfrontend :
+#		@$(RM) -f $(FRONTEND_GFX_TEX_OUT)
+#		@$(ECHO) Frontend Cleaned
+#
+# frontend:	$(FRONTEND_GFX_TEX_IN)
+#
+# $(FRONTEND_GFX_TEX_OUT) :	$(FRONTEND_GFX_TEX_IN)
+# 		@parkgrab -r- -z+ $(FRONTEND_GFX_TRANS_NO_ROT_IN) -r+ $(FRONTEND_GFX_TRANS_IN) -z- $(FRONTEND_GFX_NONTRANS_IN) -b+ -t:13,1,1 -l:$(REPORT_DIR)/frontend.lbm -o:$(FRONTEND_GFX_TEX_OUT) -k:$(FRONTEND_GFX_REP_FILE)
+# 		@$(MV) -f $(FRONTEND_GFX_OUT_DIR)/frontend.h $(FRONTEND_GFX_HDR_FILE)
+#
+# GRAF_DIRS_TO_MAKE	+=		$(FRONTEND_GFX_OUT_DIR)
+# GFX_DATA_OUT		+=		$(FRONTEND_GFX_TEX_OUT)
+
+
+#----------------------------------------------------------------------------
+# Shop icons
+#----------------------------------------------------------------------------
+SHOP_GFX_DIR :=				$(GRAF_DIR)/shop
+SHOP_GFX_OUT_DIR :=			$(DATA_OUT)/shop
+
+SHOP_GFX_TRANS :=			blower cake cupcake jelly2 partyhat prezzie sarnie teddy smalltoken
+SHOP_GFX_TRANS_IN :=		$(foreach FILE,$(SHOP_GFX_TRANS),$(SHOP_GFX_DIR)/$(FILE).bmp)
+
+SHOP_GFX_TEX_OUT :=			$(SHOP_GFX_OUT_DIR)/shop.spr
+
+SHOP_GFX_HDR_OUT :=			$(INC_DIR)/shop.h
+
+cleanshop:
+	@$(RM) -f $(SHOP_GFX_TEX_OUT)
+	@$(ECHO) Shop Cleaned
+
+shop:	$(SHOP_GFX_TEX_IN)
+$(SHOP_GFX_TEX_OUT) :	$(SHOP_GFX_TEX_IN)
+		@parkgrab -z+ $(SHOP_GFX_TRANS_IN) -b+ -t:8,1,1 -l:$(REPORT_DIR)/shop.lbm -o:$(SHOP_GFX_TEX_OUT)
+		@$(MV) -f $(SHOP_GFX_OUT_DIR)/shop.h $(SHOP_GFX_HDR_OUT)
+
+GRAF_DIRS_TO_MAKE	+=		$(SHOP_GFX_OUT_DIR)
+GFX_DATA_OUT		+=		$(SHOP_GFX_TEX_OUT)
+
+
+#----------------------------------------------------------------------------
+# Party pieces
+#----------------------------------------------------------------------------
+PARTY_GFX_DIR :=			$(GRAF_DIR)/party
+PARTY_GFX_OUT_DIR :=		$(DATA_OUT)/party
+
+PARTY_GFX_TRANS :=			balloons1 balloons2 balloons3 balloons4 balloons5 balloons6 balloons7 balloons8 \
+							banner1 banner2 banner3 banner4 banner5 banner6 banner7 \
+							bigcake \
+							cherrycakes \
+							cucumbersarnies \
+							jelly \
+							pressies1 pressies2 pressies3 pressies4 \
+							sliceofcake \
+							softtoys1 softtoys2 softtoys3 \
+							streamers1 streamers2 streamers3 streamers4 streamers5 streamers6 \
+							tablefront1 tablefront2 tablefront3 tablefront4 tablefront5 tablefront6 tablefront7 \
+							tableside1 tableside2 tableside3
+PARTY_GFX_TRANS_IN :=		$(foreach FILE,$(PARTY_GFX_TRANS),$(PARTY_GFX_DIR)/$(FILE).bmp)
+
+PARTY_GFX_TEX_OUT :=		$(PARTY_GFX_OUT_DIR)/party.spr
+
+PARTY_GFX_HDR_OUT :=		$(INC_DIR)/party.h
+PARTY_GFX_REP_FILE :=		$(PARTY_GFX_OUT_DIR)/rep.txt
+
+cleanparty:
+	@$(RM) -f $(PARTY_GFX_TEX_OUT)
+	@$(ECHO) Party Cleaned
+
+party:	$(PARTY_GFX_TEX_IN)
+$(PARTY_GFX_TEX_OUT) :	$(PARTY_GFX_TEX_IN)
+		@parkgrab -c- -z+ -r+ -q+ $(PARTY_GFX_TRANS_IN) -b+ -t:8,4,1 -l:$(REPORT_DIR)/party.lbm -o:$(PARTY_GFX_TEX_OUT) -k:$(PARTY_GFX_REP_FILE)
+		@$(MV) -f $(PARTY_GFX_OUT_DIR)/party.h $(PARTY_GFX_HDR_OUT)
+
+GRAF_DIRS_TO_MAKE	+=		$(PARTY_GFX_OUT_DIR)
+GFX_DATA_OUT		+=		$(PARTY_GFX_TEX_OUT)
+
+
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+SPRITES_OUT_DIR :=		$(DATA_OUT)/sprites
+
+SPRITES_ALL_DEP	:=		$(INGAMEGFX_SPR_DEP) \
+						$(FRONTENDGFX_SPR_DEP) \
+						$(ACTOR_SPR_DEP) \
+						$(SFXGFX_SPR_DEP)
+ 
+SPRITES_ALL_IN :=		$(INGAMEGFX_SPR_IN) \
+ 						$(FRONTENDGFX_SPR_IN) \
+						$(ACTOR_SPR_IN) \
+						$(SFXGFX_SPR_IN)
+
+SPRITES_TEX_OUT :=		$(SPRITES_OUT_DIR)/Sprites.Spr
+
+SPRITES_HDR_OUT :=		$(INC_DIR)/Sprites.h
+
+cleansprites:
+		@$(RM) -f $(SPRITES_TEX_OUT)
+		@$(RM) -f $(SPRITES_HDR_OUT)
+		@$(ECHO) Sprites Cleaned
+
+sprites:	$(SPRITES_ALL_DEP)
+
+$(SPRITES_TEX_OUT) : $(SPRITES_ALL_DEP)
+		@$(PARKGRAB) -b+ $(SPRITES_ALL_IN) -t:12,4,1 -l:$(SPRITES_OUT_DIR)/sprites.lbm -o:$(SPRITES_TEX_OUT)
+		@$(MV) -f $(SPRITES_OUT_DIR)/sprites.h $(SPRITES_HDR_OUT)
+		@$(ECHO) Sprites Made
+
+GRAF_DIRS_TO_MAKE	+=		$(SPRITES_OUT_DIR)
+GFX_DATA_OUT		+=		$(SPRITES_TEX_OUT)
+
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+#	Text translations
+#----------------------------------------------------------------------------
+#----------------------------------------------------------------------------
+.PHONY: translate cleantranslate
+
+LANGUAGES :=	swe \
+				dut \
+				ita \
+				ger
+
+
+TRANS_IN_DIR :=			$(GAME_DATA_DIR)/translations
+TRANS_OUT_DIR :=		$(DATA_OUT)/translations
+TRANS_LBM_OUT_DIR :=	$(REPORT_DIR)/translations
+
+TRANS_IN_ENG :=			$(TRANS_IN_DIR)/text.dat
+
+TRANS_FINAL_DAT_FILE :=	$(TRANS_OUT_DIR)/final.dat
+
+ALL_TRANS_OUT_DIRS :=	$(TRANS_OUT_DIR) \
+						$(TRANS_LBM_OUT_DIR)
+
+ALL_TRANS_IN_FILES :=	$(foreach FILE,$(LANGUAGES),$(TRANS_IN_DIR)/$(FILE).dat)
+
+TRANS_IN_FILES :=	$(TRANS_IN_ENG) $(ALL_TRANS_IN_FILES)
+
+TRANS_OUT_DAT :=	$(foreach FILE,	$(LANGUAGES),$(TRANS_OUT_DIR)/$(FILE).dat) $(TRANS_OUT_DIR)/id.dat $(TRANS_OUT_DIR)/eng.dat
+#$(TRANS_OUT_KANJI_TAB)
+TRANS_OUT_HDR :=	$(INC_DIR)/trans.h
+
+SCRIPT_TRANS_HDR :=	$(GAME_DATA_DIR)/scripts/defs/trans.scr
+
+TRANS_OUT_FILES :=	$(TRANS_OUT_HDR) $(TRANS_OUT_DAT) $(TRANS_OUT_LBM_LIST) $(TRANS_FINAL_DAT_FILE)
+
+$(TRANS_OUT_FILES) : $(TRANS_IN_FILES)
+	@perl tools/perl/pl/lang.pl $(TRANS_IN_ENG)  $(TRANS_FINAL_DAT_FILE) $(ALL_TRANS_IN_FILES)
+	@transtext $(LANG_OP) -h:$(TRANS_OUT_HDR) -o:$(TRANS_OUT_DIR) $(TRANS_FINAL_DAT_FILE)
+	@perl tools/perl/pl/text_extract.pl $(TRANS_OUT_HDR) $(SCRIPT_TRANS_HDR) STR__INGAME__
+
+translate : $(TRANS_OUT_FILES)
+	@$(ECHO) made translations
+
+cleantranslate:
+	@$(RM) -f $(TRANS_OUT_FILES)
+	@$(ECHO) Translations Cleaned
+
+GFX_DATA_OUT +=	$(TRANS_OUT_DAT)
+
+#----------------------------------------------------------------------------
+# Big TGA backdrops
+#----------------------------------------------------------------------------
+BACKDROPS_IN_DIR :=		$(GRAF_DIR)/backdrop
+BACKDROPS_IN :=			credits start1 start2 start3 start4 gameover shop partybackdrop nick
+
+BACKDROPS_OUT_DIR :=	$(DATA_OUT)/backdrop
+BACKDROPS_OUT :=		$(foreach SCREEN,$(BACKDROPS_IN),$(BACKDROPS_OUT_DIR)/$(SCREEN).gfx)
+
+backdrops : $(BACKDROPS_OUT)
+
+cleanbackdrops :
+		@$(RM) -f $(BACKDROPS_OUT)
+		@$(ECHO) Backdrops Cleaned
+
+$(BACKDROPS_OUT_DIR)/%.gfx : $(BACKDROPS_IN_DIR)/%.tga
+	@$(TGA2GFX) $< a.tmp
+	@$(LZNP) a.tmp $@ >nul
+	@$(RM) a.tmp
+
+GRAF_DIRS_TO_MAKE +=	$(BACKDROPS_OUT_DIR)
+GFX_DATA_OUT +=			$(BACKDROPS_OUT)
+
+
+#----------------------------------------------------------------------------
+# Map screens
+#----------------------------------------------------------------------------
+MAPSCREENS_IN_DIR :=		$(GRAF_DIR)/ui/map
+MAPSCREENS_IN :=			map_background \
+							c1_l1 c1_l2 c1_l3 c1_l4 c1_fair \
+							c2_l1 c2_l2 c2_l3 c2_l4 c2_fair \
+							c3_l1 c3_l2 c3_l3 c3_l4 c3_fair \
+							c4_l1 c4_l2 c4_l3 c4_l4 c4_fair \
+							c5_l1 c5_l2 c5_l3 c5_l4 c5_fair
+
+MAPSCREENS_OUT_DIR :=	$(DATA_OUT)/ui/map
+MAPSCREENS_OUT :=		$(foreach SCREEN,$(MAPSCREENS_IN),$(MAPSCREENS_OUT_DIR)/$(SCREEN).gfx)
+
+MAPSCREENS : $(MAPSCREENS_OUT)
+
+cleanmapscreens:
+		@$(RM) -f $(MAPSCREENS_OUT)
+		@$(ECHO) Map screens Cleaned
+
+$(MAPSCREENS_OUT_DIR)/%.gfx : $(MAPSCREENS_IN_DIR)/%.tga
+	@$(TGA2GFX) $< a.tmp
+	@$(LZNP) a.tmp $@ >nul
+	@$(RM) a.tmp
+
+GRAF_DIRS_TO_MAKE +=	$(MAPSCREENS_OUT_DIR)
+GFX_DATA_OUT +=			$(MAPSCREENS_OUT)
+
+
+#----------------------------------------------------------------------------
+# Loading screens
+#----------------------------------------------------------------------------
+LOADINGSCREENS_IN_DIR :=	$(GRAF_DIR)/loadingscreens
+LOADINGSCREENS_IN :=		culture karate monitor pickles pineapple pizza teenage bootscreen
+
+LOADINGSCREENS_OUT_DIR :=	$(DATA_OUT)/loadingscreens
+LOADINGSCREENS_OUT :=		$(foreach SCREEN,$(LOADINGSCREENS_IN),$(LOADINGSCREENS_OUT_DIR)/$(SCREEN).gfx)
+
+loadingscreens : $(LOADINGSCREENS_OUT)
+
+cleanloadingscreens :
+		@$(RM) -f $(LOADINGSCREENS_OUT)
+		@$(ECHO) Loadingscreens Cleaned
+
+$(LOADINGSCREENS_OUT_DIR)/%.gfx : $(LOADINGSCREENS_IN_DIR)/%.tga
+	@$(TGA2GFX) $< a.tmp
+	@$(LZNP) a.tmp $@ >nul
+	@$(RM) a.tmp
+
+
+GRAF_DIRS_TO_MAKE +=	$(LOADINGSCREENS_OUT_DIR)
+GFX_DATA_OUT +=			$(LOADINGSCREENS_OUT)
+
+
+#----------------------------------------------------------------------------
+# Sound FX
+#----------------------------------------------------------------------------
+SFX_IN_DIR :=		data/SFX
+SFX_OUT_DIR :=		$(DATA_OUT)/SFX
+
+SFX_LIST :=			ingame
+
+SFX_ALL_IN :=		$(foreach SFX,$(SFX_LIST),$(SFX_IN_DIR)/$(SFX)/$(SFX).PXM $(SFX_IN_DIR)/$(SFX)/$(SFX).VH $(SFX_IN_DIR)/$(SFX)/$(SFX).VB)
+SFX_ALL_OUT :=		$(foreach SFX,$(SFX_LIST),$(SFX_OUT_DIR)/$(SFX).PXM $(SFX_OUT_DIR)/$(SFX).VH $(SFX_OUT_DIR)/$(SFX).VB)
+
+sfx: 	$(SFX_ALL_OUT)
+
+cleansfx:
+		@$(RM) -f $(SFX_ALL_OUT)
+		@$(ECHO) SFX Cleaned
+
+$(SFX_ALL_OUT) : $(SFX_ALL_IN)
+	@$(CP) $(SFX_ALL_IN) $(SFX_OUT_DIR)
+	@$(ATTRIB) $(SFX_ALL_OUT)
+
+GRAF_DIRS_TO_MAKE	+=	$(SFX_OUT_DIR)
+GFX_DATA_OUT		+=	$(SFX_ALL_OUT)
+
+
+#----------------------------------------------------------------------------
+# Memcard file header
+#----------------------------------------------------------------------------
+MC_HEADER_IN_DIR :=	$(GAME_DATA_DIR)/memcard
+MC_HEADER_IN :=		$(MC_HEADER_IN_DIR)/memhead.bin
+
+MC_HEADER_OUT_DIR :=$(DATA_OUT)/memcard
+MC_HEADER_OUT :=	$(MC_HEADER_OUT_DIR)/memhead.bin
+
+mcheader:	$(MC_HEADER_OUT)
+
+cleanmcheader:
+	@$(RM) -f $(MC_HEADER_OUT)
+	@$(ECHO) MemCard Header Cleaned
+
+$(MC_HEADER_OUT) : $(MC_HEADER_IN)
+	@$(CP) $(MC_HEADER_IN) $(MC_HEADER_OUT)
+	@$(ATTRIB) $(MC_HEADER_OUT)
+
+GRAF_DIRS_TO_MAKE	+= $(MC_HEADER_OUT_DIR)
+GFX_DATA_OUT		+= $(MC_HEADER_OUT)	
+
+
+#----------------------------------------------------------------------------
+# Music
+#----------------------------------------------------------------------------
+MUSIC_IN_DIR :=		data/music
+MUSIC_OUT_DIR :=	$(DATA_OUT)/music
+
+MUSIC_LIST :=		sb-title fma \
+					chapter1 chapter2 chapter3 chapter4 chapter5 chapter6
+
+MUSIC_ALL_IN :=		$(foreach MUSIC,$(MUSIC_LIST),$(MUSIC_IN_DIR)/$(MUSIC)/$(MUSIC).PXM $(MUSIC_IN_DIR)/$(MUSIC)/$(MUSIC).VH $(MUSIC_IN_DIR)/$(MUSIC)/$(MUSIC).VB)
+MUSIC_ALL_OUT :=	$(foreach MUSIC,$(MUSIC_LIST),$(MUSIC_OUT_DIR)/$(MUSIC).PXM $(MUSIC_OUT_DIR)/$(MUSIC).VH $(MUSIC_OUT_DIR)/$(MUSIC).VB)
+
+music: 	$(MUSIC_ALL_OUT)
+
+cleanmusic:
+	@$(RM) -f $(MUSIC_ALL_OUT)
+	@$(ECHO) Music Cleaned
+
+$(MUSIC_ALL_OUT) : $(MUSIC_ALL_IN)
+	@$(CP) $(MUSIC_ALL_IN) $(MUSIC_OUT_DIR)
+	@$(ATTRIB) $(MUSIC_ALL_OUT)
+
+GRAF_DIRS_TO_MAKE	+=	$(MUSIC_OUT_DIR)
+GFX_DATA_OUT		+=	$(MUSIC_ALL_OUT)
+
+
+#----------------------------------------------------------------------------
+# Script stuff..
+#----------------------------------------------------------------------------
+SCRIPTS_LIST		:=	ch1l1_01 ch1l1_02 ch1l2_01 ch1l2_02 ch1l2_03 ch1l4_01 ch1l4_02 \
+						ch2l1_01 ch2l1_02 ch2l2_01 ch2l2_02 ch3l2_01 ch3l3_01 \
+						ch3l3_02 ch4l3_01 ch4l3_02 \
+						fma_ch1_00 fma_ch1_01 fma_ch1_02 fma_ch1_03 \
+						fma_ch2_00 fma_ch2_01 fma_ch2_02 fma_ch2_03 \
+						fma_ch3_00 fma_ch3_01 fma_ch3_02 \
+						fma_ch4_00 fma_ch4_01 fma_ch4_02 \
+						fma_ch5_00 fma_ch5_01 fma_ch5_02 \
+						fma_ch6_00 fma_ch6_01 fma_ch6_02 fma_ch6_03 \
+						fma_plankton fma_party \
+						c1l1_celebrate c1l2_celebrate c1l3_celebrate c1l4_celebrate \
+						c2l1_celebrate c2l2_celebrate c2l3_celebrate c2l4_celebrate \
+						c3l1_celebrate c3l2_celebrate c3l3_celebrate c3l4_celebrate \
+						c4l1_celebrate c4l2_celebrate c4l3_celebrate c4l4_celebrate \
+						c5l1_celebrate c5l2_celebrate c5l3_celebrate c5l4_celebrate \
+						triggerspeech_151 triggerspeech_152 triggerspeech_153 triggerspeech_154 \
+						triggerspeech_155 triggerspeech_156 triggerspeech_157 triggerspeech_158 \
+						triggerspeech_159 triggerspeech_028
+ 
+SCRIPTS_IN_DIR		:=	$(GAME_DATA_DIR)/scripts
+ 
+SCRIPTS_OUT_DIR		:=	$(DATA_OUT)/scripts
+SCRIPTS_OUT			:=	$(foreach SCRIPT,$(SCRIPTS_LIST),$(SCRIPTS_OUT_DIR)/$(SCRIPT).dat)
+ 
+scripts : $(SCRIPTS_OUT)
+
+cleanscripts:
+	@$(RM) -f $(SCRIPTS_OUT)
+	@$(ECHO) Scripts Cleaned
+
+# Saves a lot of hassle to make the scripts dependant upon the text database too..
+$(SCRIPTS_OUT_DIR)/%.dat : $(SCRIPTS_IN_DIR)/%.scr $(SCRIPT_TRANS_HDR)
+	@scripter $< $@
+
+GRAF_DIRS_TO_MAKE	+=	$(SCRIPTS_OUT_DIR)
+GFX_DATA_OUT		+=	$(SCRIPTS_OUT)
+
+
+#----------------------------------------------------------------------------
+# Demo mode data
+#----------------------------------------------------------------------------
+DEMO_IN_DIR :=		data/demo
+DEMO_OUT_DIR :=	$(DATA_OUT)/demo
+
+DEMO_LIST :=		demo____
+
+DEMO_ALL_IN :=		$(foreach DEMO,$(DEMO_LIST),$(DEMO_IN_DIR)/$(DEMO).dmo)
+DEMO_ALL_OUT :=		$(foreach DEMO,$(DEMO_LIST),$(DEMO_OUT_DIR)/$(DEMO).dmo)
+
+demo: 		$(DEMO_ALL_OUT)
+
+cleandemo:
+	@$(RM) -f $(DEMO_ALL_OUT)
+	@$(ECHO) Demo Cleaned
+
+$(DEMO_ALL_OUT) : $(DEMO_ALL_IN)
+	@$(CP) $(DEMO_ALL_IN) $(DEMO_OUT_DIR)
+	@$(ATTRIB) $(DEMO_ALL_OUT)
+
+GRAF_DIRS_TO_MAKE	+=	$(DEMO_OUT_DIR)
+GFX_DATA_OUT		+=	$(DEMO_ALL_OUT)
+
+#----------------------------------------------------------------------------
+# Dirs to Make
+#----------------------------------------------------------------------------
+
+GRAF_DIRS_TO_MAKE +=	$(TRANS_OUT_DIR) \
+						$(ACTOR_DIRS_TO_MAKE) \
+						$(LEVELS_DIRS_TO_MAKE)
+
+gdirs : $(GRAF_DIRS_TO_MAKE)
+
+$(GRAF_DIRS_TO_MAKE) :
+	@$(MKDIR) -p $(GRAF_DIRS_TO_MAKE)
+	@$(ECHO) Created directories $(GRAF_DIRS_TO_MAKE)
+
+
+#----------------------------------------------------------------------------
+#	Build the Heffalump file
+#----------------------------------------------------------------------------
+.PHONY: biglump cleanbiglump
+
+BIGLUMP_IN :=		$(GFX_DATA_OUT)
+BIGLUMP_OUT :=		$(VERSION_DIR)/BigLump.Bin
+BIGLUMP_INC :=		$(INC_DIR)/BigLump.h
+
+biglump : $(BIGLUMP_OUT)
+
+cleanbiglump :
+	@$(RM) -f $(BIGLUMP_OUT)
+	@$(GLECHO) BigLump Cleaned
+
+$(BIGLUMP_OUT) : $(BIGLUMP_IN)
+	@$(MAKEDATA) -b:$(OUT_DIR)/Data/ -s:$(GAME_DATA_DIR)/DataCache.Scr -o:$(BIGLUMP_OUT) -i:$(BIGLUMP_INC)
+
+#	@$(REDIR) $(TEMP_DIR)/BigLump.Scr $(BIGLUMP_IN)
+#	$(MAKEDATA) -b:$(OUT_DIR)/Data/ -s:$(GAME_DATA_DIR)/DataCache.Scr -s:$(TEMP_DIR)/BigLump.Scr -o:$(BIGLUMP_OUT) -i:$(BIGLUMP_INC)
+
+# All files MUST be in datacache.scr now :oP
+
+#----------------------------------------------------------------------------
+#	Where it all happens
+#----------------------------------------------------------------------------
+
+all : 	dirs gdirs \
+		actors \
+		levels \
+		biglump
+		@$(ECHO) Graphics made
+
+#----------------------------------------------------------------------------
+# end

@@ -1,0 +1,10 @@
+Idle
+GiveEnd
+GiveStart
+Sit
+SitLookLeft
+hide
+Unhide
+UnhideIdle
+SitAsleep
+RubHead

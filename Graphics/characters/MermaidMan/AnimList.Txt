@@ -1,0 +1,5 @@
+Hide
+Idle
+Sit
+SitAsleep
+
