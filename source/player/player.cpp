@@ -649,7 +649,7 @@ m_animNo=0;
 m_animFrame=0;
 	setFacing(FACING_RIGHT);
 	m_currentPlayerModeClass=NULL;
-	m_lastModeBeforeDeath=PLAYER_MODE_BASICUNARMED;	// Player will then respawn into this mode
+	m_lastModeBeforeDeath=PLAYER_MODE_FULLUNARMED;	// Player will then respawn into this mode
 	respawn();
 
 	m_lastPadInput=m_padInput=PI_NONE;
@@ -843,7 +843,8 @@ if(newmode!=-1)
 				m_tryingToAutomaticallyPickupWeapon=false;
 
 				// Weapon collect/drop/swap stuff..
-				if(m_currentMode==PLAYER_MODE_BASICUNARMED)
+				if(m_currentMode==PLAYER_MODE_BASICUNARMED||
+				   m_currentMode==PLAYER_MODE_FULLUNARMED)
 				{
 					// Always trying to pick up weapon if unarmed... means that when SB walks
 					// over an item whilst unarmed, he automatically picks it up
@@ -866,7 +867,9 @@ if(newmode!=-1)
 				if(CanChange && (m_currentMode!=PLAYER_MODE_CART && getPadInputDown()&PI_WEAPONCHANGE))
 				{
 					// If already armed then drop current weapon
-					if(m_currentMode!=PLAYER_MODE_BASICUNARMED)
+					if(m_currentMode!=PLAYER_MODE_BASICUNARMED&&
+					   m_currentMode!=PLAYER_MODE_FULLUNARMED&&
+				       m_currentMode!=PLAYER_MODE_DEAD)
 					{
 						static const int	s_pickupsToDrop[NUM_PLAYERMODES]=
 						{
@@ -895,7 +898,7 @@ if(newmode!=-1)
 							pickup->setPos(&pickupPos);
 							((CBaseWeaponPickup*)pickup)->setHasBeenCollected();
 						}
-						setMode(PLAYER_MODE_BASICUNARMED);
+						setMode(PLAYER_MODE_FULLUNARMED);
 					}
 
 					// Now trying to pick up a weapon..

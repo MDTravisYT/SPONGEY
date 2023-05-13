@@ -1608,7 +1608,7 @@ Functions referred to only by data:
      8: out/USA/DEBUG/CD/objs/player/demoplay.o: function alwaysThink__12CPlayerThing
      8: out/USA/DEBUG/CD/objs/player/demoplay.o: function getThingType__12CPlayerThing
    432: out/USA/DEBUG/CD/objs/player/player.o: function init__7CPlayer
-  3796: out/USA/DEBUG/CD/objs/player/player.o: function think__7CPlayeri
+  3812: out/USA/DEBUG/CD/objs/player/player.o: function think__7CPlayeri
   2056: out/USA/DEBUG/CD/objs/player/player.o: function render__7CPlayer
    136: out/USA/DEBUG/CD/objs/player/player.o: function readPadInput__7CPlayer
    484: out/USA/DEBUG/CD/objs/player/player.o: function shove__7CPlayerRC7DVECTOR
@@ -2003,8 +2003,8 @@ Functions referred to only by data:
    400: tools/psyq/lib/libpad.lib(PDRESRES.obj): function _padIntPad
      8: tools/psyq/lib/CMXBoot.lib(pure.obj): function __pure_virtual
 
-Total data-ref-only size: 243316
+Total data-ref-only size: 243332
 
 
-Total of totals: 265120
+Total of totals: 265136
 

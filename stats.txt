@@ -1034,7 +1034,7 @@ Named group: player.panimsfx
    BSS size:        0
 
 Named group: player.player
-  Code size:    18184
+  Code size:    18200
   Data size:     2500
    BSS size:        4
 
