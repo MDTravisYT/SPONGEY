@@ -1,2 +1,6 @@
 data\CDData\Track1.Ixa
 data/CDData/Track1.Ixa
+CdBuild.USA.Final/USA.ISO
+CdBuild.USA.Debug/USA.ISO
+CdBuild.USA.Debug/USA/track1.ixa
+CdBuild.USA.Final/USA/track1.ixa

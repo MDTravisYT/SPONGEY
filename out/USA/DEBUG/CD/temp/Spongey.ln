@@ -1,0 +1,983 @@
+;nostripfile=tools/psyq/lib/libsn.lib
+text				group 
+extractors			group 
+extradtors			group 
+data				group 
+sdata				group 
+sbss				group 	bss
+bss				group	bss 
+cached				group	cache(0x20000000) 
+
+
+memend		group	bss
+
+
+	section .text,text
+	section .cached,cached
+	section .sdata,sdata
+	section .ctors,text
+	section .dtors,text 
+	section .data,data
+	section .rdata,text
+	section .sbss,sbss
+	section .bss,bss
+	section .memend,memend
+	section .last,memend
+
+
+
+
+LNK_RamSize		equ	2
+LNK_StackSize		equ 3000
+LNK_OrgAddress		equ 0x80010000
+LNK_FileSys		equ 1
+LNK_DevKit			equ 1
+ 
+
+	regs	pc=__SN_ENTRY_POINT
+; CD Start-Up Objects
+
+	startstats "BootObj\snmain" 
+	include tools/psyq/lib/BootObj\snmain.obj
+	endstats
+
+; Main Game object files
+	startstats "system.except_a" 
+	include out/USA/DEBUG/CD/objs/system/except_a.o 
+	endstats
+	startstats "system.gp" 
+	include out/USA/DEBUG/CD/objs/system/gp.o 
+	endstats
+	startstats "system.lnkopt" 
+	include out/USA/DEBUG/CD/objs/system/lnkopt.o 
+	endstats
+	startstats "system.DEBUG.USA.CD.info" 
+	include out/USA/DEBUG/CD/objs/system/DEBUG/USA/CD/info.o 
+	endstats
+	startstats "utils.mathmip" 
+	include out/USA/DEBUG/CD/objs/utils/mathmip.o 
+	endstats
+	startstats "utils.replace" 
+	include out/USA/DEBUG/CD/objs/utils/replace.o 
+	endstats
+	startstats "backend.credits" 
+	include out/USA/DEBUG/CD/objs/backend/credits.o 
+	endstats
+	startstats "backend.gameover" 
+	include out/USA/DEBUG/CD/objs/backend/gameover.o 
+	endstats
+	startstats "backend.party" 
+	include out/USA/DEBUG/CD/objs/backend/party.o 
+	endstats
+	startstats "enemy.npc" 
+	include out/USA/DEBUG/CD/objs/enemy/npc.o 
+	endstats
+	startstats "enemy.npcdata" 
+	include out/USA/DEBUG/CD/objs/enemy/npcdata.o 
+	endstats
+	startstats "enemy.npcpath" 
+	include out/USA/DEBUG/CD/objs/enemy/npcpath.o 
+	endstats
+	startstats "enemy.nsjfish" 
+	include out/USA/DEBUG/CD/objs/enemy/nsjfish.o 
+	endstats
+	startstats "enemy.nclam" 
+	include out/USA/DEBUG/CD/objs/enemy/nclam.o 
+	endstats
+	startstats "enemy.nscrab" 
+	include out/USA/DEBUG/CD/objs/enemy/nscrab.o 
+	endstats
+	startstats "enemy.nshrkman" 
+	include out/USA/DEBUG/CD/objs/enemy/nshrkman.o 
+	endstats
+	startstats "enemy.ngeneric" 
+	include out/USA/DEBUG/CD/objs/enemy/ngeneric.o 
+	endstats
+	startstats "enemy.nanemone" 
+	include out/USA/DEBUG/CD/objs/enemy/nanemone.o 
+	endstats
+	startstats "enemy.neyeball" 
+	include out/USA/DEBUG/CD/objs/enemy/neyeball.o 
+	endstats
+	startstats "enemy.nsstomp" 
+	include out/USA/DEBUG/CD/objs/enemy/nsstomp.o 
+	endstats
+	startstats "enemy.nbooger" 
+	include out/USA/DEBUG/CD/objs/enemy/nbooger.o 
+	endstats
+	startstats "enemy.nmjfish" 
+	include out/USA/DEBUG/CD/objs/enemy/nmjfish.o 
+	endstats
+	startstats "enemy.nfdutch" 
+	include out/USA/DEBUG/CD/objs/enemy/nfdutch.o 
+	endstats
+	startstats "enemy.nsshark" 
+	include out/USA/DEBUG/CD/objs/enemy/nsshark.o 
+	endstats
+	startstats "enemy.ndogfish" 
+	include out/USA/DEBUG/CD/objs/enemy/ndogfish.o 
+	endstats
+	startstats "enemy.nffolk" 
+	include out/USA/DEBUG/CD/objs/enemy/nffolk.o 
+	endstats
+	startstats "enemy.nocto" 
+	include out/USA/DEBUG/CD/objs/enemy/nocto.o 
+	endstats
+	startstats "enemy.nfskull" 
+	include out/USA/DEBUG/CD/objs/enemy/nfskull.o 
+	endstats
+	startstats "enemy.nsklfish" 
+	include out/USA/DEBUG/CD/objs/enemy/nsklfish.o 
+	endstats
+	startstats "enemy.nworm" 
+	include out/USA/DEBUG/CD/objs/enemy/nworm.o 
+	endstats
+	startstats "enemy.nhcrab" 
+	include out/USA/DEBUG/CD/objs/enemy/nhcrab.o 
+	endstats
+	startstats "enemy.nbblob" 
+	include out/USA/DEBUG/CD/objs/enemy/nbblob.o 
+	endstats
+	startstats "enemy.npuffa" 
+	include out/USA/DEBUG/CD/objs/enemy/npuffa.o 
+	endstats
+	startstats "enemy.ngen" 
+	include out/USA/DEBUG/CD/objs/enemy/ngen.o 
+	endstats
+	startstats "enemy.nsdart" 
+	include out/USA/DEBUG/CD/objs/enemy/nsdart.o 
+	endstats
+	startstats "enemy.ndustdev" 
+	include out/USA/DEBUG/CD/objs/enemy/ndustdev.o 
+	endstats
+	startstats "enemy.npbug" 
+	include out/USA/DEBUG/CD/objs/enemy/npbug.o 
+	endstats
+	startstats "enemy.nprojjf" 
+	include out/USA/DEBUG/CD/objs/enemy/nprojjf.o 
+	endstats
+	startstats "enemy.nsjback" 
+	include out/USA/DEBUG/CD/objs/enemy/nsjback.o 
+	endstats
+	startstats "enemy.nsj2back" 
+	include out/USA/DEBUG/CD/objs/enemy/nsj2back.o 
+	endstats
+	startstats "enemy.nbuttfly" 
+	include out/USA/DEBUG/CD/objs/enemy/nbuttfly.o 
+	endstats
+	startstats "enemy.nshell" 
+	include out/USA/DEBUG/CD/objs/enemy/nshell.o 
+	endstats
+	startstats "enemy.nssnake" 
+	include out/USA/DEBUG/CD/objs/enemy/nssnake.o 
+	endstats
+	startstats "enemy.nboss" 
+	include out/USA/DEBUG/CD/objs/enemy/nboss.o 
+	endstats
+	startstats "enemy.nghost" 
+	include out/USA/DEBUG/CD/objs/enemy/nghost.o 
+	endstats
+	startstats "fileio.fileio" 
+	include out/USA/DEBUG/CD/objs/fileio/fileio.o 
+	endstats
+	startstats "fileio.cdfile" 
+	include out/USA/DEBUG/CD/objs/fileio/cdfile.o 
+	endstats
+	startstats "fma.fma" 
+	include out/USA/DEBUG/CD/objs/fma/fma.o 
+	endstats
+	startstats "fmv.fmv" 
+	include out/USA/DEBUG/CD/objs/fmv/fmv.o 
+	endstats
+	startstats "friend.friend" 
+	include out/USA/DEBUG/CD/objs/friend/friend.o 
+	endstats
+	startstats "friend.fdata" 
+	include out/USA/DEBUG/CD/objs/friend/fdata.o 
+	endstats
+	startstats "friend.fgary" 
+	include out/USA/DEBUG/CD/objs/friend/fgary.o 
+	endstats
+	startstats "friend.fsquid" 
+	include out/USA/DEBUG/CD/objs/friend/fsquid.o 
+	endstats
+	startstats "friend.fsandy" 
+	include out/USA/DEBUG/CD/objs/friend/fsandy.o 
+	endstats
+	startstats "friend.fkrusty" 
+	include out/USA/DEBUG/CD/objs/friend/fkrusty.o 
+	endstats
+	startstats "friend.fpatrick" 
+	include out/USA/DEBUG/CD/objs/friend/fpatrick.o 
+	endstats
+	startstats "frontend.demomode" 
+	include out/USA/DEBUG/CD/objs/frontend/demomode.o 
+	endstats
+	startstats "frontend.frontend" 
+	include out/USA/DEBUG/CD/objs/frontend/frontend.o 
+	endstats
+	startstats "frontend.fmvad" 
+	include out/USA/DEBUG/CD/objs/frontend/fmvad.o 
+	endstats
+	startstats "frontend.fmvthq" 
+	include out/USA/DEBUG/CD/objs/frontend/fmvthq.o 
+	endstats
+	startstats "frontend.fmvintro" 
+	include out/USA/DEBUG/CD/objs/frontend/fmvintro.o 
+	endstats
+	startstats "frontend.maintitl" 
+	include out/USA/DEBUG/CD/objs/frontend/maintitl.o 
+	endstats
+	startstats "frontend.nicklogo" 
+	include out/USA/DEBUG/CD/objs/frontend/nicklogo.o 
+	endstats
+	startstats "frontend.options" 
+	include out/USA/DEBUG/CD/objs/frontend/options.o 
+	endstats
+	startstats "frontend.scrollbg" 
+	include out/USA/DEBUG/CD/objs/frontend/scrollbg.o 
+	endstats
+	startstats "frontend.start" 
+	include out/USA/DEBUG/CD/objs/frontend/start.o 
+	endstats
+	startstats "fx.fx" 
+	include out/USA/DEBUG/CD/objs/fx/fx.o 
+	endstats
+	startstats "fx.fxbaseanim" 
+	include out/USA/DEBUG/CD/objs/fx/fxbaseanim.o 
+	endstats
+	startstats "fx.fxbasetrail" 
+	include out/USA/DEBUG/CD/objs/fx/fxbasetrail.o 
+	endstats
+	startstats "fx.fxbaseemitter" 
+	include out/USA/DEBUG/CD/objs/fx/fxbaseemitter.o 
+	endstats
+	startstats "fx.fxbubble" 
+	include out/USA/DEBUG/CD/objs/fx/fxbubble.o 
+	endstats
+	startstats "fx.fxfire" 
+	include out/USA/DEBUG/CD/objs/fx/fxfire.o 
+	endstats
+	startstats "fx.fxthwack" 
+	include out/USA/DEBUG/CD/objs/fx/fxthwack.o 
+	endstats
+	startstats "fx.fxnrgbar" 
+	include out/USA/DEBUG/CD/objs/fx/fxnrgbar.o 
+	endstats
+	startstats "fx.fxjfish" 
+	include out/USA/DEBUG/CD/objs/fx/fxjfish.o 
+	endstats
+	startstats "fx.fxfallingtile" 
+	include out/USA/DEBUG/CD/objs/fx/fxfallingtile.o 
+	endstats
+	startstats "fx.fxsteam" 
+	include out/USA/DEBUG/CD/objs/fx/fxsteam.o 
+	endstats
+	startstats "fx.fxlaser" 
+	include out/USA/DEBUG/CD/objs/fx/fxlaser.o 
+	endstats
+	startstats "fx.fxsmoke" 
+	include out/USA/DEBUG/CD/objs/fx/fxsmoke.o 
+	endstats
+	startstats "fx.fxgeyser" 
+	include out/USA/DEBUG/CD/objs/fx/fxgeyser.o 
+	endstats
+	startstats "fx.fxtvexplode" 
+	include out/USA/DEBUG/CD/objs/fx/fxtvexplode.o 
+	endstats
+	startstats "fx.fxzzzz" 
+	include out/USA/DEBUG/CD/objs/fx/fxzzzz.o 
+	endstats
+	startstats "game.bosstext" 
+	include out/USA/DEBUG/CD/objs/game/bosstext.o 
+	endstats
+	startstats "game.convo" 
+	include out/USA/DEBUG/CD/objs/game/convo.o 
+	endstats
+	startstats "game.game" 
+	include out/USA/DEBUG/CD/objs/game/game.o 
+	endstats
+	startstats "game.gamebubs" 
+	include out/USA/DEBUG/CD/objs/game/gamebubs.o 
+	endstats
+	startstats "game.gameslot" 
+	include out/USA/DEBUG/CD/objs/game/gameslot.o 
+	endstats
+	startstats "game.pause" 
+	include out/USA/DEBUG/CD/objs/game/pause.o 
+	endstats
+	startstats "game.healthman" 
+	include out/USA/DEBUG/CD/objs/game/healthman.o 
+	endstats
+	startstats "gfx.prim" 
+	include out/USA/DEBUG/CD/objs/gfx/prim.o 
+	endstats
+	startstats "gfx.tpage" 
+	include out/USA/DEBUG/CD/objs/gfx/tpage.o 
+	endstats
+	startstats "gfx.animtex" 
+	include out/USA/DEBUG/CD/objs/gfx/animtex.o 
+	endstats
+	startstats "gfx.sprbank" 
+	include out/USA/DEBUG/CD/objs/gfx/sprbank.o 
+	endstats
+	startstats "gfx.fader" 
+	include out/USA/DEBUG/CD/objs/gfx/fader.o 
+	endstats
+	startstats "gfx.fdata" 
+	include out/USA/DEBUG/CD/objs/gfx/fdata.o 
+	endstats
+	startstats "gfx.font" 
+	include out/USA/DEBUG/CD/objs/gfx/font.o 
+	endstats
+	startstats "gfx.bubicles" 
+	include out/USA/DEBUG/CD/objs/gfx/bubicles.o 
+	endstats
+	startstats "gfx.actor" 
+	include out/USA/DEBUG/CD/objs/gfx/actor.o 
+	endstats
+	startstats "gui.gbutton" 
+	include out/USA/DEBUG/CD/objs/gui/gbutton.o 
+	endstats
+	startstats "gui.gfactory" 
+	include out/USA/DEBUG/CD/objs/gui/gfactory.o 
+	endstats
+	startstats "gui.gframe" 
+	include out/USA/DEBUG/CD/objs/gui/gframe.o 
+	endstats
+	startstats "gui.greadout" 
+	include out/USA/DEBUG/CD/objs/gui/greadout.o 
+	endstats
+	startstats "gui.gsprite" 
+	include out/USA/DEBUG/CD/objs/gui/gsprite.o 
+	endstats
+	startstats "gui.gtextbox" 
+	include out/USA/DEBUG/CD/objs/gui/gtextbox.o 
+	endstats
+	startstats "gui.gui" 
+	include out/USA/DEBUG/CD/objs/gui/gui.o 
+	endstats
+	startstats "gui.pointer" 
+	include out/USA/DEBUG/CD/objs/gui/pointer.o 
+	endstats
+	startstats "hazard.hazard" 
+	include out/USA/DEBUG/CD/objs/hazard/hazard.o 
+	endstats
+	startstats "hazard.hfalling" 
+	include out/USA/DEBUG/CD/objs/hazard/hfalling.o 
+	endstats
+	startstats "hazard.hpendulm" 
+	include out/USA/DEBUG/CD/objs/hazard/hpendulm.o 
+	endstats
+	startstats "hazard.hfirebal" 
+	include out/USA/DEBUG/CD/objs/hazard/hfirebal.o 
+	endstats
+	startstats "hazard.hsaw" 
+	include out/USA/DEBUG/CD/objs/hazard/hsaw.o 
+	endstats
+	startstats "hazard.hbarrel" 
+	include out/USA/DEBUG/CD/objs/hazard/hbarrel.o 
+	endstats
+	startstats "hazard.hboat" 
+	include out/USA/DEBUG/CD/objs/hazard/hboat.o 
+	endstats
+	startstats "hazard.hcsaw" 
+	include out/USA/DEBUG/CD/objs/hazard/hcsaw.o 
+	endstats
+	startstats "hazard.hmower" 
+	include out/USA/DEBUG/CD/objs/hazard/hmower.o 
+	endstats
+	startstats "hazard.hmasher" 
+	include out/USA/DEBUG/CD/objs/hazard/hmasher.o 
+	endstats
+	startstats "hazard.hfan" 
+	include out/USA/DEBUG/CD/objs/hazard/hfan.o 
+	endstats
+	startstats "hazard.hspikes" 
+	include out/USA/DEBUG/CD/objs/hazard/hspikes.o 
+	endstats
+	startstats "hazard.hbwheel" 
+	include out/USA/DEBUG/CD/objs/hazard/hbwheel.o 
+	endstats
+	startstats "hazard.hdbarrel" 
+	include out/USA/DEBUG/CD/objs/hazard/hdbarrel.o 
+	endstats
+	startstats "hazard.hbbarrel" 
+	include out/USA/DEBUG/CD/objs/hazard/hbbarrel.o 
+	endstats
+	startstats "hazard.hrrock" 
+	include out/USA/DEBUG/CD/objs/hazard/hrrock.o 
+	endstats
+	startstats "hazard.hflytrap" 
+	include out/USA/DEBUG/CD/objs/hazard/hflytrap.o 
+	endstats
+	startstats "hazard.hrweight" 
+	include out/USA/DEBUG/CD/objs/hazard/hrweight.o 
+	endstats
+	startstats "hazard.hpswitch" 
+	include out/USA/DEBUG/CD/objs/hazard/hpswitch.o 
+	endstats
+	startstats "hazard.hrckshrd" 
+	include out/USA/DEBUG/CD/objs/hazard/hrckshrd.o 
+	endstats
+	startstats "hazard.hinert" 
+	include out/USA/DEBUG/CD/objs/hazard/hinert.o 
+	endstats
+	startstats "hazard.hcswitch" 
+	include out/USA/DEBUG/CD/objs/hazard/hcswitch.o 
+	endstats
+	startstats "hazard.hbrock" 
+	include out/USA/DEBUG/CD/objs/hazard/hbrock.o 
+	endstats
+	startstats "hazard.hlog" 
+	include out/USA/DEBUG/CD/objs/hazard/hlog.o 
+	endstats
+	startstats "hazard.hsrdfish" 
+	include out/USA/DEBUG/CD/objs/hazard/hsrdfish.o 
+	endstats
+	startstats "hazard.hcheck" 
+	include out/USA/DEBUG/CD/objs/hazard/hcheck.o 
+	endstats
+	startstats "jellfish.jellfish" 
+	include out/USA/DEBUG/CD/objs/jellfish/jellfish.o 
+	endstats
+	startstats "level.level" 
+	include out/USA/DEBUG/CD/objs/level/level.o 
+	endstats
+	startstats "level.layertile" 
+	include out/USA/DEBUG/CD/objs/level/layertile.o 
+	endstats
+	startstats "level.layerback" 
+	include out/USA/DEBUG/CD/objs/level/layerback.o 
+	endstats
+	startstats "level.layertile3d" 
+	include out/USA/DEBUG/CD/objs/level/layertile3d.o 
+	endstats
+	startstats "level.layercollision" 
+	include out/USA/DEBUG/CD/objs/level/layercollision.o 
+	endstats
+	startstats "locale.textdbase" 
+	include out/USA/DEBUG/CD/objs/locale/textdbase.o 
+	endstats
+	startstats "map.map" 
+	include out/USA/DEBUG/CD/objs/map/map.o 
+	endstats
+	startstats "mem.memory" 
+	include out/USA/DEBUG/CD/objs/mem/memory.o 
+	endstats
+	startstats "memcard.md5" 
+	include out/USA/DEBUG/CD/objs/memcard/md5.o 
+	endstats
+	startstats "memcard.memcard" 
+	include out/USA/DEBUG/CD/objs/memcard/memcard.o 
+	endstats
+	startstats "memcard.saveload" 
+	include out/USA/DEBUG/CD/objs/memcard/saveload.o 
+	endstats
+	startstats "pad.pads" 
+	include out/USA/DEBUG/CD/objs/pad/pads.o 
+	endstats
+	startstats "pad.vibe" 
+	include out/USA/DEBUG/CD/objs/pad/vibe.o 
+	endstats
+	startstats "paul.paul" 
+	include out/USA/DEBUG/CD/objs/paul/paul.o 
+	endstats
+	startstats "paul.sndtest" 
+	include out/USA/DEBUG/CD/objs/paul/sndtest.o 
+	endstats
+	startstats "paul.scenesel" 
+	include out/USA/DEBUG/CD/objs/paul/scenesel.o 
+	endstats
+	startstats "paul.animtest" 
+	include out/USA/DEBUG/CD/objs/paul/animtest.o 
+	endstats
+	startstats "pickups.pickup" 
+	include out/USA/DEBUG/CD/objs/pickups/pickup.o 
+	endstats
+	startstats "pickups.pballoon" 
+	include out/USA/DEBUG/CD/objs/pickups/pballoon.o 
+	endstats
+	startstats "pickups.pblower" 
+	include out/USA/DEBUG/CD/objs/pickups/pblower.o 
+	endstats
+	startstats "pickups.pbubmix" 
+	include out/USA/DEBUG/CD/objs/pickups/pbubmix.o 
+	endstats
+	startstats "pickups.pglove" 
+	include out/USA/DEBUG/CD/objs/pickups/pglove.o 
+	endstats
+	startstats "pickups.phelmet" 
+	include out/USA/DEBUG/CD/objs/pickups/phelmet.o 
+	endstats
+	startstats "pickups.pjlammo" 
+	include out/USA/DEBUG/CD/objs/pickups/pjlammo.o 
+	endstats
+	startstats "pickups.pkelp" 
+	include out/USA/DEBUG/CD/objs/pickups/pkelp.o 
+	endstats
+	startstats "pickups.plife" 
+	include out/USA/DEBUG/CD/objs/pickups/plife.o 
+	endstats
+	startstats "pickups.pnet" 
+	include out/USA/DEBUG/CD/objs/pickups/pnet.o 
+	endstats
+	startstats "pickups.pquest" 
+	include out/USA/DEBUG/CD/objs/pickups/pquest.o 
+	endstats
+	startstats "pickups.pshoes" 
+	include out/USA/DEBUG/CD/objs/pickups/pshoes.o 
+	endstats
+	startstats "pickups.pspatula" 
+	include out/USA/DEBUG/CD/objs/pickups/pspatula.o 
+	endstats
+	startstats "platform.platform" 
+	include out/USA/DEBUG/CD/objs/platform/platform.o 
+	endstats
+	startstats "platform.platdata" 
+	include out/USA/DEBUG/CD/objs/platform/platdata.o 
+	endstats
+	startstats "platform.plinear" 
+	include out/USA/DEBUG/CD/objs/platform/plinear.o 
+	endstats
+	startstats "platform.pcirculr" 
+	include out/USA/DEBUG/CD/objs/platform/pcirculr.o 
+	endstats
+	startstats "platform.pbubble" 
+	include out/USA/DEBUG/CD/objs/platform/pbubble.o 
+	endstats
+	startstats "platform.pfishhk" 
+	include out/USA/DEBUG/CD/objs/platform/pfishhk.o 
+	endstats
+	startstats "platform.pgeyser" 
+	include out/USA/DEBUG/CD/objs/platform/pgeyser.o 
+	endstats
+	startstats "platform.pbob" 
+	include out/USA/DEBUG/CD/objs/platform/pbob.o 
+	endstats
+	startstats "platform.pfalling" 
+	include out/USA/DEBUG/CD/objs/platform/pfalling.o 
+	endstats
+	startstats "platform.pcart" 
+	include out/USA/DEBUG/CD/objs/platform/pcart.o 
+	endstats
+	startstats "platform.pretract" 
+	include out/USA/DEBUG/CD/objs/platform/pretract.o 
+	endstats
+	startstats "platform.pbranch" 
+	include out/USA/DEBUG/CD/objs/platform/pbranch.o 
+	endstats
+	startstats "platform.ppendulm" 
+	include out/USA/DEBUG/CD/objs/platform/ppendulm.o 
+	endstats
+	startstats "platform.pseesaw" 
+	include out/USA/DEBUG/CD/objs/platform/pseesaw.o 
+	endstats
+	startstats "platform.pbounce" 
+	include out/USA/DEBUG/CD/objs/platform/pbounce.o 
+	endstats
+	startstats "platform.pdual" 
+	include out/USA/DEBUG/CD/objs/platform/pdual.o 
+	endstats
+	startstats "platform.pfgen" 
+	include out/USA/DEBUG/CD/objs/platform/pfgen.o 
+	endstats
+	startstats "platform.pfallnor" 
+	include out/USA/DEBUG/CD/objs/platform/pfallnor.o 
+	endstats
+	startstats "platform.praft" 
+	include out/USA/DEBUG/CD/objs/platform/praft.o 
+	endstats
+	startstats "platform.plantern" 
+	include out/USA/DEBUG/CD/objs/platform/plantern.o 
+	endstats
+	startstats "platform.pbgeyser" 
+	include out/USA/DEBUG/CD/objs/platform/pbgeyser.o 
+	endstats
+	startstats "platform.pleaf" 
+	include out/USA/DEBUG/CD/objs/platform/pleaf.o 
+	endstats
+	startstats "platform.pbwheel" 
+	include out/USA/DEBUG/CD/objs/platform/pbwheel.o 
+	endstats
+	startstats "platform.psbarrel" 
+	include out/USA/DEBUG/CD/objs/platform/psbarrel.o 
+	endstats
+	startstats "platform.pjellfsh" 
+	include out/USA/DEBUG/CD/objs/platform/pjellfsh.o 
+	endstats
+	startstats "platform.pclam" 
+	include out/USA/DEBUG/CD/objs/platform/pclam.o 
+	endstats
+	startstats "platform.pfishhk3" 
+	include out/USA/DEBUG/CD/objs/platform/pfishhk3.o 
+	endstats
+	startstats "platform.prbridge" 
+	include out/USA/DEBUG/CD/objs/platform/prbridge.o 
+	endstats
+	startstats "platform.pbaloon" 
+	include out/USA/DEBUG/CD/objs/platform/pbaloon.o 
+	endstats
+	startstats "platform.ptrpdoor" 
+	include out/USA/DEBUG/CD/objs/platform/ptrpdoor.o 
+	endstats
+	startstats "platform.pconveyr" 
+	include out/USA/DEBUG/CD/objs/platform/pconveyr.o 
+	endstats
+	startstats "platform.pplayer" 
+	include out/USA/DEBUG/CD/objs/platform/pplayer.o 
+	endstats
+	startstats "platform.pcbubble" 
+	include out/USA/DEBUG/CD/objs/platform/pcbubble.o 
+	endstats
+	startstats "platform.pdrop" 
+	include out/USA/DEBUG/CD/objs/platform/pdrop.o 
+	endstats
+	startstats "platform.psswitch" 
+	include out/USA/DEBUG/CD/objs/platform/psswitch.o 
+	endstats
+	startstats "platform.plift" 
+	include out/USA/DEBUG/CD/objs/platform/plift.o 
+	endstats
+	startstats "platform.plurve" 
+	include out/USA/DEBUG/CD/objs/platform/plurve.o 
+	endstats
+	startstats "platform.pbubtube" 
+	include out/USA/DEBUG/CD/objs/platform/pbubtube.o 
+	endstats
+	startstats "platform.pgbubble" 
+	include out/USA/DEBUG/CD/objs/platform/pgbubble.o 
+	endstats
+	startstats "platform.pfblock" 
+	include out/USA/DEBUG/CD/objs/platform/pfblock.o 
+	endstats
+	startstats "platform.pghost" 
+	include out/USA/DEBUG/CD/objs/platform/pghost.o 
+	endstats
+	startstats "player.demoplay" 
+	include out/USA/DEBUG/CD/objs/player/demoplay.o 
+	endstats
+	startstats "player.panimsfx" 
+	include out/USA/DEBUG/CD/objs/player/panimsfx.o 
+	endstats
+	startstats "player.player" 
+	include out/USA/DEBUG/CD/objs/player/player.o 
+	endstats
+	startstats "player.pmodes" 
+	include out/USA/DEBUG/CD/objs/player/pmodes.o 
+	endstats
+	startstats "player.pmbloon" 
+	include out/USA/DEBUG/CD/objs/player/pmbloon.o 
+	endstats
+	startstats "player.pmbubble" 
+	include out/USA/DEBUG/CD/objs/player/pmbubble.o 
+	endstats
+	startstats "player.pmcart" 
+	include out/USA/DEBUG/CD/objs/player/pmcart.o 
+	endstats
+	startstats "player.pmchop" 
+	include out/USA/DEBUG/CD/objs/player/pmchop.o 
+	endstats
+	startstats "player.pmcoral" 
+	include out/USA/DEBUG/CD/objs/player/pmcoral.o 
+	endstats
+	startstats "player.pmdead" 
+	include out/USA/DEBUG/CD/objs/player/pmdead.o 
+	endstats
+	startstats "player.pmfly" 
+	include out/USA/DEBUG/CD/objs/player/pmfly.o 
+	endstats
+	startstats "player.pmjelly" 
+	include out/USA/DEBUG/CD/objs/player/pmjelly.o 
+	endstats
+	startstats "player.pmnet" 
+	include out/USA/DEBUG/CD/objs/player/pmnet.o 
+	endstats
+	startstats "player.pmswal" 
+	include out/USA/DEBUG/CD/objs/player/pmswal.o 
+	endstats
+	startstats "player.psbutt" 
+	include out/USA/DEBUG/CD/objs/player/psbutt.o 
+	endstats
+	startstats "player.pscart" 
+	include out/USA/DEBUG/CD/objs/player/pscart.o 
+	endstats
+	startstats "player.psdance" 
+	include out/USA/DEBUG/CD/objs/player/psdance.o 
+	endstats
+	startstats "player.psduck" 
+	include out/USA/DEBUG/CD/objs/player/psduck.o 
+	endstats
+	startstats "player.psfall" 
+	include out/USA/DEBUG/CD/objs/player/psfall.o 
+	endstats
+	startstats "player.psfloat" 
+	include out/USA/DEBUG/CD/objs/player/psfloat.o 
+	endstats
+	startstats "player.pshitgnd" 
+	include out/USA/DEBUG/CD/objs/player/pshitgnd.o 
+	endstats
+	startstats "player.psidle" 
+	include out/USA/DEBUG/CD/objs/player/psidle.o 
+	endstats
+	startstats "player.psjmpbck" 
+	include out/USA/DEBUG/CD/objs/player/psjmpbck.o 
+	endstats
+	startstats "player.psjump" 
+	include out/USA/DEBUG/CD/objs/player/psjump.o 
+	endstats
+	startstats "player.pslook" 
+	include out/USA/DEBUG/CD/objs/player/pslook.o 
+	endstats
+	startstats "player.psrun" 
+	include out/USA/DEBUG/CD/objs/player/psrun.o 
+	endstats
+	startstats "player.psspring" 
+	include out/USA/DEBUG/CD/objs/player/psspring.o 
+	endstats
+	startstats "player.psswal" 
+	include out/USA/DEBUG/CD/objs/player/psswal.o 
+	endstats
+	startstats "projectl.projectl" 
+	include out/USA/DEBUG/CD/objs/projectl/projectl.o 
+	endstats
+	startstats "projectl.prnpc" 
+	include out/USA/DEBUG/CD/objs/projectl/prnpc.o 
+	endstats
+	startstats "projectl.prnpcspr" 
+	include out/USA/DEBUG/CD/objs/projectl/prnpcspr.o 
+	endstats
+	startstats "save.save" 
+	include out/USA/DEBUG/CD/objs/save/save.o 
+	endstats
+	startstats "script.script" 
+	include out/USA/DEBUG/CD/objs/script/script.o 
+	endstats
+	startstats "script.function" 
+	include out/USA/DEBUG/CD/objs/script/function.o 
+	endstats
+	startstats "shop.shop" 
+	include out/USA/DEBUG/CD/objs/shop/shop.o 
+	endstats
+	startstats "sound.sound" 
+	include out/USA/DEBUG/CD/objs/sound/sound.o 
+	endstats
+	startstats "sound.spu" 
+	include out/USA/DEBUG/CD/objs/sound/spu.o 
+	endstats
+	startstats "sound.xmplay" 
+	include out/USA/DEBUG/CD/objs/sound/xmplay.o 
+	endstats
+	startstats "sound.cdxa" 
+	include out/USA/DEBUG/CD/objs/sound/cdxa.o 
+	endstats
+	startstats "system.main" 
+	include out/USA/DEBUG/CD/objs/system/main.o 
+	endstats
+	startstats "system.gstate" 
+	include out/USA/DEBUG/CD/objs/system/gstate.o 
+	endstats
+	startstats "system.vid" 
+	include out/USA/DEBUG/CD/objs/system/vid.o 
+	endstats
+	startstats "system.dbg" 
+	include out/USA/DEBUG/CD/objs/system/dbg.o 
+	endstats
+	startstats "system.vsprintf" 
+	include out/USA/DEBUG/CD/objs/system/vsprintf.o 
+	endstats
+	startstats "system.clickcount" 
+	include out/USA/DEBUG/CD/objs/system/clickcount.o 
+	endstats
+	startstats "system.except" 
+	include out/USA/DEBUG/CD/objs/system/except.o 
+	endstats
+	startstats "thing.thing" 
+	include out/USA/DEBUG/CD/objs/thing/thing.o 
+	endstats
+	startstats "triggers.trigger" 
+	include out/USA/DEBUG/CD/objs/triggers/trigger.o 
+	endstats
+	startstats "triggers.tboss" 
+	include out/USA/DEBUG/CD/objs/triggers/tboss.o 
+	endstats
+	startstats "triggers.tcamlock" 
+	include out/USA/DEBUG/CD/objs/triggers/tcamlock.o 
+	endstats
+	startstats "triggers.tlevexit" 
+	include out/USA/DEBUG/CD/objs/triggers/tlevexit.o 
+	endstats
+	startstats "triggers.tlook" 
+	include out/USA/DEBUG/CD/objs/triggers/tlook.o 
+	endstats
+	startstats "triggers.trestart" 
+	include out/USA/DEBUG/CD/objs/triggers/trestart.o 
+	endstats
+	startstats "triggers.tteleprt" 
+	include out/USA/DEBUG/CD/objs/triggers/tteleprt.o 
+	endstats
+	startstats "triggers.twater" 
+	include out/USA/DEBUG/CD/objs/triggers/twater.o 
+	endstats
+	startstats "triggers.tplatfrm" 
+	include out/USA/DEBUG/CD/objs/triggers/tplatfrm.o 
+	endstats
+	startstats "triggers.tgarygo" 
+	include out/USA/DEBUG/CD/objs/triggers/tgarygo.o 
+	endstats
+	startstats "triggers.tfemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tfemit.o 
+	endstats
+	startstats "triggers.tbemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tbemit.o 
+	endstats
+	startstats "triggers.tabemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tabemit.o 
+	endstats
+	startstats "triggers.tobemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tobemit.o 
+	endstats
+	startstats "triggers.tlbemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tlbemit.o 
+	endstats
+	startstats "triggers.tifemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tifemit.o 
+	endstats
+	startstats "triggers.tggleft" 
+	include out/USA/DEBUG/CD/objs/triggers/tggleft.o 
+	endstats
+	startstats "triggers.tggright" 
+	include out/USA/DEBUG/CD/objs/triggers/tggright.o 
+	endstats
+	startstats "triggers.tgstop" 
+	include out/USA/DEBUG/CD/objs/triggers/tgstop.o 
+	endstats
+	startstats "triggers.thazard" 
+	include out/USA/DEBUG/CD/objs/triggers/thazard.o 
+	endstats
+	startstats "triggers.tbgeyser" 
+	include out/USA/DEBUG/CD/objs/triggers/tbgeyser.o 
+	endstats
+	startstats "triggers.thazwalk" 
+	include out/USA/DEBUG/CD/objs/triggers/thazwalk.o 
+	endstats
+	startstats "triggers.tsecret" 
+	include out/USA/DEBUG/CD/objs/triggers/tsecret.o 
+	endstats
+	startstats "triggers.tsemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tsemit.o 
+	endstats
+	startstats "triggers.tsswitch" 
+	include out/USA/DEBUG/CD/objs/triggers/tsswitch.o 
+	endstats
+	startstats "triggers.tgbowl" 
+	include out/USA/DEBUG/CD/objs/triggers/tgbowl.o 
+	endstats
+	startstats "triggers.twdripemit" 
+	include out/USA/DEBUG/CD/objs/triggers/twdripemit.o 
+	endstats
+	startstats "triggers.tadripemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tadripemit.o 
+	endstats
+	startstats "triggers.todripemit" 
+	include out/USA/DEBUG/CD/objs/triggers/todripemit.o 
+	endstats
+	startstats "triggers.tldripemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tldripemit.o 
+	endstats
+	startstats "triggers.tsdownemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tsdownemit.o 
+	endstats
+	startstats "triggers.tsleftemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tsleftemit.o 
+	endstats
+	startstats "triggers.tsrightemit" 
+	include out/USA/DEBUG/CD/objs/triggers/tsrightemit.o 
+	endstats
+	startstats "triggers.twindup" 
+	include out/USA/DEBUG/CD/objs/triggers/twindup.o 
+	endstats
+	startstats "triggers.twinddown" 
+	include out/USA/DEBUG/CD/objs/triggers/twinddown.o 
+	endstats
+	startstats "triggers.twindleft" 
+	include out/USA/DEBUG/CD/objs/triggers/twindleft.o 
+	endstats
+	startstats "triggers.twindright" 
+	include out/USA/DEBUG/CD/objs/triggers/twindright.o 
+	endstats
+	startstats "triggers.toilgeyser" 
+	include out/USA/DEBUG/CD/objs/triggers/toilgeyser.o 
+	endstats
+	startstats "triggers.tspeech" 
+	include out/USA/DEBUG/CD/objs/triggers/tspeech.o 
+	endstats
+	startstats "triggers.tbuttfly" 
+	include out/USA/DEBUG/CD/objs/triggers/tbuttfly.o 
+	endstats
+	startstats "utils.utils" 
+	include out/USA/DEBUG/CD/objs/utils/utils.o 
+	endstats
+	startstats "utils.sincos" 
+	include out/USA/DEBUG/CD/objs/utils/sincos.o 
+	endstats
+	startstats "utils.lznp" 
+	include out/USA/DEBUG/CD/objs/utils/lznp.o 
+	endstats
+	startstats "tools.vlc.lib.vlc_bit.o" 
+	include tools/vlc/lib/vlc_bit.o 
+	endstats
+
+; Libs
+	startstats "tools/psyq/lib/libc.lib"
+	inclib tools/psyq/lib/libc.lib
+	endstats
+	startstats "tools/psyq/lib/libapi.lib"
+	inclib tools/psyq/lib/libapi.lib
+	endstats
+	startstats "tools/psyq/lib/libetc.lib"
+	inclib tools/psyq/lib/libetc.lib
+	endstats
+	startstats "tools/psyq/lib/libspu.lib"
+	inclib tools/psyq/lib/libspu.lib
+	endstats
+	startstats "tools/psyq/lib/libsnd.lib"
+	inclib tools/psyq/lib/libsnd.lib
+	endstats
+	startstats "tools/psyq/lib/libgpu.lib"
+	inclib tools/psyq/lib/libgpu.lib
+	endstats
+	startstats "tools/psyq/lib/libcard.lib"
+	inclib tools/psyq/lib/libcard.lib
+	endstats
+	startstats "tools/psyq/lib/libpress.lib"
+	inclib tools/psyq/lib/libpress.lib
+	endstats
+	startstats "tools/psyq/lib/libcd.lib"
+	inclib tools/psyq/lib/libcd.lib
+	endstats
+	startstats "tools/psyq/lib/libtap.lib"
+	inclib tools/psyq/lib/libtap.lib
+	endstats
+	startstats "tools/psyq/lib/libcomb.lib"
+	inclib tools/psyq/lib/libcomb.lib
+	endstats
+	startstats "tools/psyq/lib/libmcrd.lib"
+	inclib tools/psyq/lib/libmcrd.lib
+	endstats
+	startstats "tools/psyq/lib/libgte.lib"
+	inclib tools/psyq/lib/libgte.lib
+	endstats
+	startstats "tools/psyq/lib/libpad.lib"
+	inclib tools/psyq/lib/libpad.lib
+	endstats
+	startstats "tools/psyq/lib/libds.lib"
+	inclib tools/psyq/lib/libds.lib
+	endstats
+	startstats "tools/mod/lib/xmplay.lib"
+	inclib tools/mod/lib/xmplay.lib
+	endstats
+	startstats "tools/psyq/lib/CMXBoot.lib"
+	inclib tools/psyq/lib/CMXBoot.lib
+	endstats
+
