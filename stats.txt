@@ -18,7 +18,7 @@ Named group: system.lnkopt
   Data size:       40
    BSS size:        0
 
-Named group: system.FINAL.USA.CD.info
+Named group: system.DEBUG.USA.CD.info
   Code size:        0
   Data size:       16
    BSS size:        0
@@ -34,28 +34,28 @@ Named group: utils.replace
    BSS size:        0
 
 Named group: backend.credits
-  Code size:     1572
-  Data size:      864
+  Code size:     1600
+  Data size:     1016
    BSS size:        0
 
 Named group: backend.gameover
-  Code size:     3208
-  Data size:      320
+  Code size:     3240
+  Data size:      672
    BSS size:        0
 
 Named group: backend.party
-  Code size:     1032
-  Data size:     1284
+  Code size:     1148
+  Data size:     1632
    BSS size:       16
 
 Named group: enemy.npc
-  Code size:     9812
-  Data size:     1584
+  Code size:     9948
+  Data size:     1828
    BSS size:        0
 
 Named group: enemy.npcdata
   Code size:        0
-  Data size:     2516
+  Data size:     2596
    BSS size:        0
 
 Named group: enemy.npcpath
@@ -64,173 +64,173 @@ Named group: enemy.npcpath
    BSS size:        0
 
 Named group: enemy.nsjfish
-  Code size:     2516
-  Data size:      388
+  Code size:     2660
+  Data size:      580
    BSS size:        0
 
 Named group: enemy.nclam
   Code size:     2348
-  Data size:     1092
+  Data size:     1284
    BSS size:        0
 
 Named group: enemy.nscrab
   Code size:     2184
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nshrkman
   Code size:      692
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.ngeneric
-  Code size:     2376
-  Data size:       12
+  Code size:     2800
+  Data size:      204
    BSS size:        0
 
 Named group: enemy.nanemone
-  Code size:     3480
-  Data size:     1452
+  Code size:     3544
+  Data size:     1644
    BSS size:        0
 
 Named group: enemy.neyeball
-  Code size:     1964
-  Data size:      372
+  Code size:     2108
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nsstomp
-  Code size:     1124
-  Data size:      372
+  Code size:     1164
+  Data size:      600
    BSS size:        0
 
 Named group: enemy.nbooger
   Code size:      472
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nmjfish
-  Code size:     5104
-  Data size:      404
+  Code size:     5132
+  Data size:      632
    BSS size:        0
 
 Named group: enemy.nfdutch
-  Code size:     4136
-  Data size:      408
+  Code size:     4160
+  Data size:      636
    BSS size:        0
 
 Named group: enemy.nsshark
-  Code size:     4672
-  Data size:      404
+  Code size:     4696
+  Data size:      632
    BSS size:        0
 
 Named group: enemy.ndogfish
-  Code size:     3304
-  Data size:      408
+  Code size:     3332
+  Data size:      636
    BSS size:        0
 
 Named group: enemy.nffolk
   Code size:      468
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nocto
   Code size:     1188
-  Data size:      396
+  Data size:      588
    BSS size:        0
 
 Named group: enemy.nfskull
   Code size:      456
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nsklfish
   Code size:      656
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nworm
   Code size:     3728
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nhcrab
   Code size:     1216
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nbblob
   Code size:      552
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.npuffa
   Code size:      420
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.ngen
   Code size:      384
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nsdart
-  Code size:     1072
-  Data size:      372
+  Code size:     1104
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.ndustdev
   Code size:     1496
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.npbug
   Code size:      356
-  Data size:      372
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nprojjf
   Code size:      728
-  Data size:      392
+  Data size:      584
    BSS size:        0
 
 Named group: enemy.nsjback
-  Code size:     2400
-  Data size:      372
+  Code size:     2544
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nsj2back
-  Code size:     1184
-  Data size:      372
+  Code size:     1328
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nbuttfly
-  Code size:      868
-  Data size:      372
+  Code size:      900
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nshell
-  Code size:      964
-  Data size:      372
+  Code size:     1108
+  Data size:      564
    BSS size:        0
 
 Named group: enemy.nssnake
-  Code size:     8956
-  Data size:      380
+  Code size:     9288
+  Data size:      608
    BSS size:        0
 
 Named group: enemy.nboss
   Code size:      648
-  Data size:      380
+  Data size:      572
    BSS size:        0
 
 Named group: enemy.nghost
   Code size:      360
-  Data size:      360
+  Data size:      440
    BSS size:        0
 
 Named group: fileio.fileio
-  Code size:     1356
-  Data size:     2192
+  Code size:     1512
+  Data size:     2360
    BSS size:        0
 
 Named group: fileio.cdfile
@@ -239,63 +239,63 @@ Named group: fileio.cdfile
    BSS size:        0
 
 Named group: fma.fma
-  Code size:     6412
-  Data size:     7552
+  Code size:     6844
+  Data size:     7992
    BSS size:        0
 
 Named group: fmv.fmv
-  Code size:     2324
-  Data size:       44
+  Code size:     2544
+  Data size:      268
    BSS size:       84
 
 Named group: friend.friend
-  Code size:     1552
-  Data size:      280
+  Code size:     1792
+  Data size:      564
    BSS size:        0
 
 Named group: friend.fdata
   Code size:        0
-  Data size:      192
+  Data size:      272
    BSS size:        0
 
 Named group: friend.fgary
-  Code size:     2396
-  Data size:      180
+  Code size:     2484
+  Data size:      372
    BSS size:        0
 
 Named group: friend.fsquid
   Code size:      416
-  Data size:      168
+  Data size:      248
    BSS size:        0
 
 Named group: friend.fsandy
   Code size:      188
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: friend.fkrusty
   Code size:      328
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: friend.fpatrick
   Code size:      280
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: frontend.demomode
   Code size:     1100
-  Data size:      284
+  Data size:      476
    BSS size:        0
 
 Named group: frontend.frontend
   Code size:     1604
-  Data size:      272
+  Data size:      664
    BSS size:      316
 
 Named group: frontend.fmvad
-  Code size:       88
-  Data size:       88
+  Code size:      112
+  Data size:      116
    BSS size:        0
 
 Named group: frontend.fmvthq
@@ -309,168 +309,168 @@ Named group: frontend.fmvintro
    BSS size:        0
 
 Named group: frontend.maintitl
-  Code size:     1748
-  Data size:      192
+  Code size:     1836
+  Data size:      548
    BSS size:        4
 
 Named group: frontend.nicklogo
-  Code size:      352
-  Data size:       88
+  Code size:      384
+  Data size:      128
    BSS size:        0
 
 Named group: frontend.options
   Code size:    10416
-  Data size:      964
+  Data size:     1284
    BSS size:        0
 
 Named group: frontend.scrollbg
-  Code size:      964
-  Data size:       28
+  Code size:     1000
+  Data size:      108
    BSS size:        0
 
 Named group: frontend.start
-  Code size:     5492
-  Data size:      216
+  Code size:     5524
+  Data size:      608
    BSS size:        0
 
 Named group: fx.fx
-  Code size:     5128
-  Data size:      796
+  Code size:     5380
+  Data size:     1204
    BSS size:        0
 
 Named group: fx.fxbaseanim
-  Code size:     1148
-  Data size:      180
+  Code size:     1292
+  Data size:      372
    BSS size:        0
 
 Named group: fx.fxbasetrail
-  Code size:      868
-  Data size:      180
+  Code size:     1012
+  Data size:      372
    BSS size:        0
 
 Named group: fx.fxbaseemitter
   Code size:      360
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: fx.fxbubble
   Code size:      728
-  Data size:      212
+  Data size:      404
    BSS size:        0
 
 Named group: fx.fxfire
-  Code size:     1560
-  Data size:      180
+  Code size:     1632
+  Data size:      372
    BSS size:        0
 
 Named group: fx.fxthwack
-  Code size:      600
-  Data size:      180
+  Code size:      744
+  Data size:      372
    BSS size:        0
 
 Named group: fx.fxnrgbar
-  Code size:      656
-  Data size:      180
+  Code size:      688
+  Data size:      372
    BSS size:        0
 
 Named group: fx.fxjfish
-  Code size:     1500
-  Data size:      180
+  Code size:     1532
+  Data size:      372
    BSS size:        0
 
 Named group: fx.fxfallingtile
   Code size:      556
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: fx.fxsteam
   Code size:     1200
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: fx.fxlaser
-  Code size:     1680
-  Data size:      184
+  Code size:     1748
+  Data size:      408
    BSS size:        0
 
 Named group: fx.fxsmoke
-  Code size:     1204
-  Data size:      348
+  Code size:     1348
+  Data size:      540
    BSS size:        0
 
 Named group: fx.fxgeyser
-  Code size:     1544
-  Data size:      180
+  Code size:     1576
+  Data size:      372
    BSS size:        0
 
 Named group: fx.fxtvexplode
   Code size:      828
-  Data size:      212
+  Data size:      404
    BSS size:        0
 
 Named group: fx.fxzzzz
-  Code size:     1144
-  Data size:      196
+  Code size:     1176
+  Data size:      388
    BSS size:        0
 
 Named group: game.bosstext
   Code size:     3160
-  Data size:      104
+  Data size:      296
    BSS size:        0
 
 Named group: game.convo
-  Code size:     3864
-  Data size:     1560
+  Code size:     4072
+  Data size:     1936
    BSS size:        4
 
 Named group: game.game
-  Code size:     5500
-  Data size:      756
+  Code size:     5840
+  Data size:     1200
    BSS size:        0
 
 Named group: game.gamebubs
   Code size:       76
-  Data size:      384
+  Data size:      464
    BSS size:        0
 
 Named group: game.gameslot
-  Code size:     1056
-  Data size:      564
+  Code size:     1532
+  Data size:      888
    BSS size:        0
 
 Named group: game.pause
-  Code size:     3840
-  Data size:      152
+  Code size:     3984
+  Data size:      596
    BSS size:        4
 
 Named group: game.healthman
-  Code size:     2300
-  Data size:       32
+  Code size:     2492
+  Data size:      268
    BSS size:        0
 
 Named group: gfx.prim
-  Code size:      420
-  Data size:       48
+  Code size:      544
+  Data size:      140
    BSS size:        0
 
 Named group: gfx.tpage
-  Code size:     2584
-  Data size:       12
+  Code size:     2808
+  Data size:      172
    BSS size:     9216
 
 Named group: gfx.animtex
-  Code size:     1448
-  Data size:      168
+  Code size:     1688
+  Data size:      292
    BSS size:        0
 
 Named group: gfx.sprbank
-  Code size:     2088
-  Data size:       24
+  Code size:     2368
+  Data size:      216
    BSS size:        0
 
 Named group: gfx.fader
   Code size:     1184
-  Data size:       40
+  Data size:      120
    BSS size:        0
 
 Named group: gfx.fdata
@@ -479,23 +479,23 @@ Named group: gfx.fdata
    BSS size:        0
 
 Named group: gfx.font
-  Code size:     4016
-  Data size:      160
+  Code size:     4264
+  Data size:      312
    BSS size:        0
 
 Named group: gfx.bubicles
-  Code size:     7256
-  Data size:      112
+  Code size:     7664
+  Data size:      496
    BSS size:        0
 
 Named group: gfx.actor
-  Code size:     6952
-  Data size:      432
+  Code size:     7184
+  Data size:      736
    BSS size:        0
 
 Named group: gui.gbutton
-  Code size:     1136
-  Data size:      352
+  Code size:     1432
+  Data size:      416
    BSS size:        0
 
 Named group: gui.gfactory
@@ -504,208 +504,208 @@ Named group: gui.gfactory
    BSS size:        0
 
 Named group: gui.gframe
-  Code size:     1680
-  Data size:      176
-   BSS size:        0
-
-Named group: gui.greadout
-  Code size:     2312
-  Data size:      332
-   BSS size:        0
-
-Named group: gui.gsprite
-  Code size:      588
+  Code size:     1944
   Data size:      208
    BSS size:        0
 
+Named group: gui.greadout
+  Code size:     2564
+  Data size:      628
+   BSS size:        0
+
+Named group: gui.gsprite
+  Code size:      736
+  Data size:      360
+   BSS size:        0
+
 Named group: gui.gtextbox
-  Code size:      300
-  Data size:       96
+  Code size:      420
+  Data size:      272
    BSS size:        0
 
 Named group: gui.gui
-  Code size:     6100
-  Data size:      340
+  Code size:     7032
+  Data size:      620
    BSS size:        0
 
 Named group: gui.pointer
   Code size:      780
-  Data size:       12
+  Data size:      204
    BSS size:        0
 
 Named group: hazard.hazard
-  Code size:     3244
-  Data size:     1100
+  Code size:     3272
+  Data size:     1332
    BSS size:        0
 
 Named group: hazard.hfalling
   Code size:     1860
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hpendulm
   Code size:     1148
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hfirebal
   Code size:      848
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hsaw
   Code size:      712
-  Data size:      184
+  Data size:      264
    BSS size:        0
 
 Named group: hazard.hbarrel
   Code size:      768
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hboat
   Code size:      840
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hcsaw
   Code size:      300
-  Data size:      188
+  Data size:      380
    BSS size:        0
 
 Named group: hazard.hmower
   Code size:      300
-  Data size:      188
+  Data size:      380
    BSS size:        0
 
 Named group: hazard.hmasher
   Code size:      696
-  Data size:      228
+  Data size:      420
    BSS size:        0
 
 Named group: hazard.hfan
   Code size:      300
-  Data size:      188
+  Data size:      380
    BSS size:        0
 
 Named group: hazard.hspikes
   Code size:      432
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hbwheel
   Code size:      320
-  Data size:      188
+  Data size:      380
    BSS size:        0
 
 Named group: hazard.hdbarrel
   Code size:     1008
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hbbarrel
   Code size:     1396
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hrrock
   Code size:      784
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hflytrap
   Code size:      900
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hrweight
-  Code size:     2120
-  Data size:      380
+  Code size:     2160
+  Data size:      628
    BSS size:        0
 
 Named group: hazard.hpswitch
   Code size:      408
-  Data size:      184
+  Data size:      264
    BSS size:        0
 
 Named group: hazard.hrckshrd
   Code size:      824
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hinert
   Code size:      152
-  Data size:      188
+  Data size:      380
    BSS size:        0
 
 Named group: hazard.hcswitch
   Code size:      616
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: hazard.hbrock
   Code size:     1368
-  Data size:      184
+  Data size:      264
    BSS size:        0
 
 Named group: hazard.hlog
   Code size:      500
-  Data size:      184
+  Data size:      264
    BSS size:        0
 
 Named group: hazard.hsrdfish
   Code size:      564
-  Data size:      184
+  Data size:      264
    BSS size:        0
 
 Named group: hazard.hcheck
   Code size:     1308
-  Data size:      228
+  Data size:      420
    BSS size:        0
 
 Named group: jellfish.jellfish
   Code size:      672
-  Data size:       20
+  Data size:      212
    BSS size:        0
 
 Named group: level.level
-  Code size:     6852
-  Data size:      904
+  Code size:     7968
+  Data size:     1428
    BSS size:        0
 
 Named group: level.layertile
   Code size:     1196
-  Data size:       56
+  Data size:       96
    BSS size:        0
 
 Named group: level.layerback
-  Code size:     1900
-  Data size:       68
-   BSS size:        0
-
-Named group: level.layertile3d
-  Code size:     3056
+  Code size:     1956
   Data size:      332
    BSS size:        0
 
+Named group: level.layertile3d
+  Code size:     3060
+  Data size:      560
+   BSS size:        0
+
 Named group: level.layercollision
-  Code size:     1492
-  Data size:      152
+  Code size:     1788
+  Data size:      272
    BSS size:        0
 
 Named group: locale.textdbase
-  Code size:      624
-  Data size:       24
+  Code size:      892
+  Data size:      160
    BSS size:       20
 
 Named group: map.map
-  Code size:     4504
-  Data size:     1824
+  Code size:     4764
+  Data size:     2280
    BSS size:        0
 
 Named group: mem.memory
-  Code size:     1300
-  Data size:     3604
+  Code size:     1836
+  Data size:     3808
    BSS size:        0
 
 Named group: memcard.md5
@@ -714,18 +714,18 @@ Named group: memcard.md5
    BSS size:        0
 
 Named group: memcard.memcard
-  Code size:     5384
-  Data size:     6036
+  Code size:     5832
+  Data size:     6404
    BSS size:      148
 
 Named group: memcard.saveload
-  Code size:     1892
-  Data size:       40
+  Code size:     3220
+  Data size:      744
    BSS size:        0
 
 Named group: pad.pads
-  Code size:     2384
-  Data size:      496
+  Code size:     2440
+  Data size:      544
    BSS size:        0
 
 Named group: pad.vibe
@@ -734,298 +734,298 @@ Named group: pad.vibe
    BSS size:        0
 
 Named group: paul.paul
-  Code size:        0
-  Data size:        0
-   BSS size:        0
+  Code size:      744
+  Data size:      272
+   BSS size:       48
 
 Named group: paul.sndtest
-  Code size:        0
-  Data size:        0
-   BSS size:        0
+  Code size:      908
+  Data size:      332
+   BSS size:        4
 
 Named group: paul.scenesel
-  Code size:        0
-  Data size:        0
+  Code size:     1320
+  Data size:      544
    BSS size:        0
 
 Named group: paul.animtest
-  Code size:        0
-  Data size:        0
-   BSS size:        0
+  Code size:     2008
+  Data size:     1580
+   BSS size:       28
 
 Named group: pickups.pickup
-  Code size:     2920
-  Data size:     1076
+  Code size:     3172
+  Data size:     1624
    BSS size:        0
 
 Named group: pickups.pballoon
   Code size:     1036
-  Data size:      256
+  Data size:      448
    BSS size:        0
 
 Named group: pickups.pblower
   Code size:      200
-  Data size:      204
+  Data size:      396
    BSS size:        0
 
 Named group: pickups.pbubmix
   Code size:      904
-  Data size:      404
+  Data size:      596
    BSS size:        0
 
 Named group: pickups.pglove
   Code size:      192
-  Data size:      204
+  Data size:      396
    BSS size:        0
 
 Named group: pickups.phelmet
   Code size:      448
-  Data size:      196
+  Data size:      388
    BSS size:        0
 
 Named group: pickups.pjlammo
-  Code size:      960
-  Data size:      404
+  Code size:     1068
+  Data size:      596
    BSS size:        0
 
 Named group: pickups.pkelp
-  Code size:      844
-  Data size:      204
+  Code size:      988
+  Data size:      632
    BSS size:        0
 
 Named group: pickups.plife
   Code size:      664
-  Data size:      204
+  Data size:      396
    BSS size:        0
 
 Named group: pickups.pnet
   Code size:      216
-  Data size:      204
+  Data size:      396
    BSS size:        0
 
 Named group: pickups.pquest
-  Code size:     3160
-  Data size:      308
+  Code size:     3236
+  Data size:      552
    BSS size:        0
 
 Named group: pickups.pshoes
   Code size:      808
-  Data size:      216
+  Data size:      408
    BSS size:        0
 
 Named group: pickups.pspatula
-  Code size:      800
-  Data size:      252
+  Code size:      888
+  Data size:      644
    BSS size:        0
 
 Named group: platform.platform
-  Code size:     8612
-  Data size:     1664
+  Code size:     8748
+  Data size:     1892
    BSS size:        0
 
 Named group: platform.platdata
   Code size:        0
-  Data size:     1620
+  Data size:     1700
    BSS size:        0
 
 Named group: platform.plinear
   Code size:      772
-  Data size:      296
+  Data size:      376
    BSS size:        0
 
 Named group: platform.pcirculr
   Code size:      240
-  Data size:      296
+  Data size:      376
    BSS size:        0
 
 Named group: platform.pbubble
-  Code size:     1292
-  Data size:      308
+  Code size:     1436
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pfishhk
   Code size:     1072
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pgeyser
   Code size:      884
-  Data size:      296
+  Data size:      376
    BSS size:        0
 
 Named group: platform.pbob
   Code size:      412
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pfalling
   Code size:      456
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pcart
-  Code size:     2524
-  Data size:      308
+  Code size:     2688
+  Data size:      536
    BSS size:        0
 
 Named group: platform.pretract
   Code size:      664
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pbranch
   Code size:     1440
-  Data size:      316
+  Data size:      508
    BSS size:        0
 
 Named group: platform.ppendulm
   Code size:     1672
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pseesaw
   Code size:      732
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pbounce
-  Code size:     1280
-  Data size:      308
+  Code size:     1332
+  Data size:      536
    BSS size:        0
 
 Named group: platform.pdual
-  Code size:     2600
-  Data size:      308
+  Code size:     2696
+  Data size:      584
    BSS size:        0
 
 Named group: platform.pfgen
-  Code size:      512
-  Data size:      308
+  Code size:      572
+  Data size:      544
    BSS size:        0
 
 Named group: platform.pfallnor
-  Code size:      964
-  Data size:      308
+  Code size:     1052
+  Data size:      500
    BSS size:        0
 
 Named group: platform.praft
   Code size:     1356
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.plantern
   Code size:      844
-  Data size:      296
+  Data size:      376
    BSS size:        0
 
 Named group: platform.pbgeyser
-  Code size:      468
-  Data size:      308
+  Code size:      528
+  Data size:      552
    BSS size:        0
 
 Named group: platform.pleaf
   Code size:      500
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pbwheel
   Code size:      968
-  Data size:      296
+  Data size:      376
    BSS size:        0
 
 Named group: platform.psbarrel
-  Code size:     1348
-  Data size:      308
+  Code size:     1396
+  Data size:      536
    BSS size:        0
 
 Named group: platform.pjellfsh
   Code size:      984
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pclam
-  Code size:      700
-  Data size:      300
+  Code size:      752
+  Data size:      528
    BSS size:        0
 
 Named group: platform.pfishhk3
   Code size:      300
-  Data size:      296
+  Data size:      376
    BSS size:        0
 
 Named group: platform.prbridge
-  Code size:      616
-  Data size:      296
+  Code size:      656
+  Data size:      440
    BSS size:        0
 
 Named group: platform.pbaloon
-  Code size:     2248
-  Data size:      324
+  Code size:     2280
+  Data size:      516
    BSS size:        0
 
 Named group: platform.ptrpdoor
-  Code size:      876
-  Data size:      296
+  Code size:      916
+  Data size:      440
    BSS size:        0
 
 Named group: platform.pconveyr
-  Code size:     1796
-  Data size:      604
+  Code size:     1852
+  Data size:      848
    BSS size:        0
 
 Named group: platform.pplayer
   Code size:      276
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pcbubble
   Code size:      688
-  Data size:      604
+  Data size:      796
    BSS size:        0
 
 Named group: platform.pdrop
   Code size:      380
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.psswitch
-  Code size:      844
-  Data size:      308
+  Code size:      884
+  Data size:      564
    BSS size:        0
 
 Named group: platform.plift
-  Code size:     1472
-  Data size:      308
+  Code size:     1524
+  Data size:      536
    BSS size:        0
 
 Named group: platform.plurve
   Code size:      252
-  Data size:      296
+  Data size:      376
    BSS size:        0
 
 Named group: platform.pbubtube
-  Code size:     1116
-  Data size:      308
+  Code size:     1168
+  Data size:      536
    BSS size:        0
 
 Named group: platform.pgbubble
-  Code size:      972
-  Data size:      308
+  Code size:     1116
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pfblock
   Code size:     1124
-  Data size:      308
+  Data size:      500
    BSS size:        0
 
 Named group: platform.pghost
-  Code size:     1752
-  Data size:      308
+  Code size:     1864
+  Data size:      500
    BSS size:        0
 
 Named group: player.demoplay
-  Code size:      344
-  Data size:      192
+  Code size:      432
+  Data size:      264
    BSS size:        0
 
 Named group: player.panimsfx
@@ -1034,43 +1034,43 @@ Named group: player.panimsfx
    BSS size:        0
 
 Named group: player.player
-  Code size:    16496
-  Data size:     1492
-   BSS size:       20
+  Code size:    18184
+  Data size:     2500
+   BSS size:        4
 
 Named group: player.pmodes
-  Code size:     4936
-  Data size:      536
+  Code size:     5008
+  Data size:      728
    BSS size:        0
 
 Named group: player.pmbloon
-  Code size:      828
-  Data size:      268
+  Code size:      860
+  Data size:      460
    BSS size:        0
 
 Named group: player.pmbubble
   Code size:     1120
-  Data size:      408
+  Data size:      600
    BSS size:        0
 
 Named group: player.pmcart
   Code size:      516
-  Data size:      228
+  Data size:      420
    BSS size:        0
 
 Named group: player.pmchop
   Code size:     1164
-  Data size:      320
+  Data size:      512
    BSS size:        0
 
 Named group: player.pmcoral
-  Code size:     2292
-  Data size:      364
+  Code size:     2436
+  Data size:      556
    BSS size:        4
 
 Named group: player.pmdead
   Code size:      920
-  Data size:      140
+  Data size:      532
    BSS size:        0
 
 Named group: player.pmfly
@@ -1079,38 +1079,38 @@ Named group: player.pmfly
    BSS size:        0
 
 Named group: player.pmjelly
-  Code size:     2548
-  Data size:      404
+  Code size:     2628
+  Data size:      596
    BSS size:        0
 
 Named group: player.pmnet
-  Code size:     2116
-  Data size:      508
+  Code size:     2196
+  Data size:      780
    BSS size:        0
 
 Named group: player.pmswal
   Code size:      144
-  Data size:      228
+  Data size:      420
    BSS size:        0
 
 Named group: player.psbutt
-  Code size:     1168
-  Data size:      140
+  Code size:     1256
+  Data size:      332
    BSS size:        0
 
 Named group: player.pscart
   Code size:      276
-  Data size:       32
+  Data size:      112
    BSS size:        0
 
 Named group: player.psdance
   Code size:      448
-  Data size:      132
+  Data size:      324
    BSS size:        0
 
 Named group: player.psduck
   Code size:      456
-  Data size:       64
+  Data size:      144
    BSS size:        0
 
 Named group: player.psfall
@@ -1120,7 +1120,7 @@ Named group: player.psfall
 
 Named group: player.psfloat
   Code size:      224
-  Data size:       36
+  Data size:      116
    BSS size:        0
 
 Named group: player.pshitgnd
@@ -1129,8 +1129,8 @@ Named group: player.pshitgnd
    BSS size:        0
 
 Named group: player.psidle
-  Code size:     1688
-  Data size:      564
+  Code size:     1952
+  Data size:      620
    BSS size:        0
 
 Named group: player.psjmpbck
@@ -1160,82 +1160,82 @@ Named group: player.psspring
 
 Named group: player.psswal
   Code size:      124
-  Data size:       32
+  Data size:      112
    BSS size:        0
 
 Named group: projectl.projectl
-  Code size:     5492
-  Data size:      344
+  Code size:     6244
+  Data size:      588
    BSS size:        0
 
 Named group: projectl.prnpc
   Code size:      436
-  Data size:      140
+  Data size:      332
    BSS size:        0
 
 Named group: projectl.prnpcspr
-  Code size:      596
-  Data size:      172
+  Code size:      748
+  Data size:      404
    BSS size:        0
 
 Named group: save.save
   Code size:     5760
-  Data size:      588
+  Data size:      980
    BSS size:        0
 
 Named group: script.script
-  Code size:     1520
-  Data size:      120
+  Code size:     2120
+  Data size:      364
    BSS size:        0
 
 Named group: script.function
-  Code size:      564
-  Data size:       76
+  Code size:      828
+  Data size:      692
    BSS size:        0
 
 Named group: shop.shop
-  Code size:     5500
-  Data size:      412
+  Code size:     5604
+  Data size:      836
    BSS size:        0
 
 Named group: sound.sound
-  Code size:     1848
-  Data size:     2928
+  Code size:     2496
+  Data size:     3328
    BSS size:        8
 
 Named group: sound.spu
-  Code size:      320
-  Data size:     1608
+  Code size:      356
+  Data size:     1676
    BSS size:        0
 
 Named group: sound.xmplay
-  Code size:     3964
-  Data size:      152
+  Code size:     5748
+  Data size:      644
    BSS size:        0
 
 Named group: sound.cdxa
-  Code size:     1244
-  Data size:      136
+  Code size:     1452
+  Data size:      272
    BSS size:        4
 
 Named group: system.main
-  Code size:      576
-  Data size:       44
+  Code size:      584
+  Data size:      436
    BSS size:        4
 
 Named group: system.gstate
-  Code size:      428
-  Data size:        4
+  Code size:     1100
+  Data size:      384
    BSS size:        8
 
 Named group: system.vid
-  Code size:     2448
-  Data size:      188
+  Code size:     3556
+  Data size:      408
    BSS size:      296
 
 Named group: system.dbg
-  Code size:        0
-  Data size:        0
+  Code size:      760
+  Data size:      188
    BSS size:        0
 
 Named group: system.vsprintf
@@ -1245,27 +1245,27 @@ Named group: system.vsprintf
 
 Named group: system.clickcount
   Code size:        0
-  Data size:       12
+  Data size:       68
    BSS size:        0
 
 Named group: system.except
   Code size:     2328
-  Data size:     1332
+  Data size:     1448
    BSS size:       20
 
 Named group: thing.thing
-  Code size:     8284
-  Data size:      344
+  Code size:     8900
+  Data size:      816
    BSS size:        0
 
 Named group: triggers.trigger
-  Code size:     3704
-  Data size:     1196
+  Code size:     3732
+  Data size:     1428
    BSS size:        0
 
 Named group: triggers.tboss
   Code size:      220
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tcamlock
@@ -1275,7 +1275,7 @@ Named group: triggers.tcamlock
 
 Named group: triggers.tlevexit
   Code size:      180
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tlook
@@ -1290,7 +1290,7 @@ Named group: triggers.trestart
 
 Named group: triggers.tteleprt
   Code size:      644
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.twater
@@ -1300,12 +1300,12 @@ Named group: triggers.twater
 
 Named group: triggers.tplatfrm
   Code size:      280
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: triggers.tgarygo
   Code size:      156
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: triggers.tfemit
@@ -1315,47 +1315,47 @@ Named group: triggers.tfemit
 
 Named group: triggers.tbemit
   Code size:      200
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tabemit
   Code size:      152
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tobemit
   Code size:      152
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tlbemit
   Code size:      152
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tifemit
   Code size:      368
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tggleft
   Code size:      164
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tggright
   Code size:      164
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tgstop
   Code size:      388
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.thazard
   Code size:      344
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: triggers.tbgeyser
@@ -1365,7 +1365,7 @@ Named group: triggers.tbgeyser
 
 Named group: triggers.thazwalk
   Code size:      196
-  Data size:      172
+  Data size:      364
    BSS size:        0
 
 Named group: triggers.tsecret
@@ -1375,52 +1375,52 @@ Named group: triggers.tsecret
 
 Named group: triggers.tsemit
   Code size:      196
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tsswitch
   Code size:      384
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tgbowl
   Code size:      136
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.twdripemit
   Code size:      200
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tadripemit
   Code size:      152
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.todripemit
   Code size:      152
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tldripemit
   Code size:      152
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tsdownemit
   Code size:      176
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tsleftemit
   Code size:      188
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tsrightemit
   Code size:      184
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.twindup
@@ -1445,7 +1445,7 @@ Named group: triggers.twindright
 
 Named group: triggers.toilgeyser
   Code size:      244
-  Data size:      164
+  Data size:      356
    BSS size:        0
 
 Named group: triggers.tspeech
@@ -1455,12 +1455,12 @@ Named group: triggers.tspeech
 
 Named group: triggers.tbuttfly
   Code size:      128
-  Data size:      156
+  Data size:      348
    BSS size:        0
 
 Named group: utils.utils
   Code size:        8
-  Data size:      132
+  Data size:      168
    BSS size:        0
 
 Named group: utils.sincos
@@ -1504,7 +1504,7 @@ Named group: tools/psyq/lib/libsnd.lib
    BSS size:        0
 
 Named group: tools/psyq/lib/libgpu.lib
-  Code size:    10084
+  Code size:    10284
   Data size:      960
    BSS size:     6224
 
